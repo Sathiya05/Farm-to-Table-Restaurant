@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Admin Dashboard | Hearth & Harvest</title>
+<meta name="description" content="Restaurant admin dashboard — reservations, guests, events, menu, sourcing. Frontend demo."/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{forest:'#3F5D45',terra:'#C98B5B',linen:'#F6F1E7',earth:'#2F3028',olive:'#8A6A3F'}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="bg-[#F6F1E7] dark:bg-[#20251F] text-[#2F3028] dark:text-[#F6F1E7] font-sans antialiased">
+<div id="adminDash" class="flex min-h-screen">
+<div id="adminOver" class="hidden fixed inset-0 bg-black/50 z-40"></div>
+<aside id="adminSide" class="fixed lg:sticky top-0 bottom-0 start-0 z-50 lg:z-auto w-72 shrink-0 h-screen -translate-x-full lg:translate-x-0 transition-transform bg-white dark:bg-[#2B3029] border-e border-[#ece2cf] dark:border-[#3c443c] p-5 flex flex-col gap-1 overflow-y-auto" aria-label="Admin menu">
+<a href="index.html" class="flex items-center gap-2.5 pb-4 mb-2 border-b border-[#ece2cf] dark:border-[#3c443c]" aria-label="Hearth and Harvest home">
+<span class="w-9 h-9 rounded-full bg-[#3F5D45] dark:bg-[#6F8B72] text-white grid place-items-center" aria-hidden="true"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c-5 0-8-3.5-8-8 0-5 4-9 10-10-.5 6-1.5 10-6 12 2.5 1 3 .5 4-1 1 1.5 1.5 2 4 1-4.5 3.5-1 6 6-1.2 0-2.5 0-4 0z" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 21v-8" stroke-linecap="round"/></svg></span>
+<span class="leading-none"><span class="block font-serif text-base font-bold">Hearth <span class="italic font-accent text-[#C98B5B]">&</span> Harvest</span><span class="block text-[10.5px] tracking-[0.18em] uppercase text-[#8A6A3F] dark:text-[#C9AE8A] mt-1">Farm-to-Table · Supper Club</span></span>
+</a>
+<div class="lg:hidden flex justify-between items-center mb-3"><span class="font-serif font-bold">Admin Menu</span><button id="adminClose" aria-label="Close admin menu" class="w-9 h-9 grid place-items-center rounded-full border border-[#ddcfb4] dark:border-[#4a534a]"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<div class="lg:hidden grid grid-cols-2 gap-2 mb-3">
+<button id="adminThemeM" class="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl border border-[#ddcfb4] dark:border-[#4a534a] text-xs font-bold"><span class="adminThemeIcon"></span>Theme</button>
+<button id="adminRtlM" class="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl border border-[#ddcfb4] dark:border-[#4a534a] text-xs font-bold"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 12l4-4M3 12l4 4M21 12l-4-4M21 12l-4 4"/></svg>RTL / LTR</button>
+</div>
+<nav class="space-y-1 text-sm font-semibold" aria-label="Admin sections">
+<button type="button" data-apanellink="overview" class="apanellink block w-full text-start px-4 py-2.5 rounded-xl bg-[#3F5D45] text-white text-sm font-semibold">Overview</button>
+<button type="button" data-apanellink="reservations" class="apanellink block w-full text-start px-4 py-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 text-sm font-semibold">Reservations</button>
+<button type="button" data-apanellink="guests" class="apanellink block w-full text-start px-4 py-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 text-sm font-semibold">Guests</button>
+<button type="button" data-apanellink="events" class="apanellink block w-full text-start px-4 py-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 text-sm font-semibold">Events</button>
+<button type="button" data-apanellink="menu" class="apanellink block w-full text-start px-4 py-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 text-sm font-semibold">Seasonal Menu</button>
+<button type="button" data-apanellink="sourcing" class="apanellink block w-full text-start px-4 py-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 text-sm font-semibold">Sourcing & Dietary</button>
+<button type="button" data-apanellink="inbox" class="apanellink block w-full text-start px-4 py-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 text-sm font-semibold">Inbox</button>
+<button type="button" data-apanellink="settings" class="apanellink block w-full text-start px-4 py-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 text-sm font-semibold">Settings</button>
+</nav>
+<button data-logout class="mt-auto flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-red-200 dark:border-red-900/50 text-sm font-semibold text-red-700 dark:text-red-300 hover:bg-red-50 dark:hover:bg-red-900/20 transition"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12H4m0 0l4-4m-4 4l4 4M11 4h8a2 2 0 012 2v12a2 2 0 01-2 2h-8"/></svg>Logout</button>
+</aside>
+<main class="flex-1 min-w-0 px-4 sm:px-6 lg:px-8 py-6 md:py-8 max-w-6xl">
+<div class="sticky top-0 z-30 -mx-4 sm:-mx-6 lg:-mx-8 -mt-6 md:-mt-8 px-4 sm:px-6 lg:px-8 pt-6 md:pt-8 pb-3 bg-[#F6F1E7]/95 dark:bg-[#20251F]/95 backdrop-blur border-b border-[#ece2cf] dark:border-[#3c443c]">
+<div class="flex items-center justify-between gap-3">
+<div class="min-w-0"><h1 class="font-serif text-2xl md:text-3xl font-bold">Good evening, Chef</h1><p class="text-sm opacity-70">Current Season: <strong>Autumn</strong> · Frontend demo data.</p></div>
+<div class="flex items-center gap-2 shrink-0">
+<button id="adminTheme" aria-label="Toggle dark mode" title="Toggle theme" class="hidden lg:grid w-10 h-10 place-items-center rounded-full border border-[#ddcfb4] dark:border-[#4a534a] text-[#3F5D45] dark:text-[#F6F1E7] hover:bg-[#3F5D45] hover:text-white transition"></button>
+<button id="adminRtl" aria-label="Toggle right-to-left layout" title="Toggle RTL / LTR" class="hidden lg:grid w-10 h-10 place-items-center rounded-full border border-[#ddcfb4] dark:border-[#4a534a] text-[#3F5D45] dark:text-[#F6F1E7] hover:bg-[#C98B5B] hover:text-white hover:border-[#C98B5B] transition"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 12l4-4M3 12l4 4M21 12l-4-4M21 12l-4 4"/></svg></button>
+<button data-apanelgoto="settings" class="flex items-center gap-2.5 ps-1 pe-3 py-1 rounded-full border border-[#ddcfb4] dark:border-[#4a534a] hover:border-[#3F5D45] dark:hover:border-[#C98B5B] transition" aria-label="Open settings" title="Admin profile"><img src="images/variants/chef-elena-v2.jpg" alt="Admin profile photo" class="w-9 h-9 rounded-full object-cover"/><span class="hidden sm:block text-start leading-tight"><span class="block text-sm font-bold">Elena</span><span class="block text-[11px] opacity-60">Admin · Hearth</span></span></button>
+<button id="adminBurger" aria-label="Open admin menu" aria-expanded="false" class="lg:hidden w-10 h-10 shrink-0 grid place-items-center rounded-full bg-[#3F5D45] text-white shadow"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+</div>
+</div>
+<!-- PANEL: OVERVIEW -->
+<section data-apanel="overview" id="aoverview">
+<div class="grid grid-cols-2 xl:grid-cols-4 gap-4 mt-5">
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-5"><p class="text-xs uppercase tracking-widest opacity-60">Today’s Reservations</p><p class="font-serif text-3xl font-bold">18</p><button data-apanelgoto="reservations" class="text-xs font-bold text-[#C98B5B] mt-1">Review →</button></div>
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-5"><p class="text-xs uppercase tracking-widest opacity-60">Upcoming Events</p><p class="font-serif text-3xl font-bold">6</p><button data-apanelgoto="events" class="text-xs font-bold text-[#C98B5B] mt-1">Manage →</button></div>
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-5"><p class="text-xs uppercase tracking-widest opacity-60">Guest Requests</p><p class="font-serif text-3xl font-bold">7</p><button data-apanelgoto="inbox" class="text-xs font-bold text-[#C98B5B] mt-1">Inbox →</button></div>
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-5"><p class="text-xs uppercase tracking-widest opacity-60">Current Season</p><p class="font-serif text-3xl font-bold text-[#C98B5B]">Autumn</p><button data-apanelgoto="menu" class="text-xs font-bold text-[#C98B5B] mt-1">Menu →</button></div>
+</div>
+<div class="mt-4 grid md:grid-cols-2 gap-4">
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-6"><h2 class="font-serif text-lg font-bold">Tonight’s service</h2><ul class="mt-3 space-y-3 text-sm"><li class="flex gap-3"><span class="w-2 h-2 mt-1.5 rounded-full bg-green-500 shrink-0"></span><span><strong>6:00 PM</strong> — first tasting seating · 8 covers confirmed.</span></li><li class="flex gap-3"><span class="w-2 h-2 mt-1.5 rounded-full bg-[#C98B5B] shrink-0"></span><span><strong>7:30 PM</strong> — peak seating · 1 nut-allergy ticket flagged.</span></li><li class="flex gap-3"><span class="w-2 h-2 mt-1.5 rounded-full bg-[#3F5D45] shrink-0"></span><span><strong>9:00 PM</strong> — cellar delivery arrives before close.</span></li></ul></div>
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-6"><h2 class="font-serif text-lg font-bold">Quick actions</h2><div class="flex flex-wrap gap-2 mt-3"><button data-apanelgoto="reservations" class="px-4 py-2.5 rounded-full bg-[#3F5D45] text-white text-xs font-bold">Confirm Pending</button><button data-apanelgoto="menu" class="px-4 py-2.5 rounded-full border text-xs font-bold">Add Dish</button><button data-apanelgoto="events" class="px-4 py-2.5 rounded-full border text-xs font-bold">Add Event</button><button data-apanelgoto="inbox" class="px-4 py-2.5 rounded-full border text-xs font-bold">Reply Inbox</button></div><p class="text-xs opacity-70 mt-3">3 pending confirmations need review before 5 PM.</p></div>
+</div>
+<div class="mt-4 grid md:grid-cols-2 gap-4">
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-6"><h2 class="font-serif text-lg font-bold">Covers this week</h2><div class="flex items-end gap-2 mt-4 h-28"><div class="flex-1 grid justify-items-center gap-1"><span class="text-[11px] font-bold">42</span><span class="w-full rounded-t-lg bg-[#3F5D45]/25 dark:bg-white/15" style="height:52px"></span><span class="text-[10px] opacity-60">TUE</span></div><div class="flex-1 grid justify-items-center gap-1"><span class="text-[11px] font-bold">58</span><span class="w-full rounded-t-lg bg-[#3F5D45]/40 dark:bg-white/20" style="height:68px"></span><span class="text-[10px] opacity-60">WED</span></div><div class="flex-1 grid justify-items-center gap-1"><span class="text-[11px] font-bold">64</span><span class="w-full rounded-t-lg bg-[#3F5D45]/55 dark:bg-white/25" style="height:76px"></span><span class="text-[10px] opacity-60">THU</span></div><div class="flex-1 grid justify-items-center gap-1"><span class="text-[11px] font-bold">88</span><span class="w-full rounded-t-lg bg-[#C98B5B]" style="height:100px"></span><span class="text-[10px] opacity-60">FRI</span></div><div class="flex-1 grid justify-items-center gap-1"><span class="text-[11px] font-bold">96</span><span class="w-full rounded-t-lg bg-[#C98B5B]" style="height:108px"></span><span class="text-[10px] opacity-60">SAT</span></div><div class="flex-1 grid justify-items-center gap-1"><span class="text-[11px] font-bold">51</span><span class="w-full rounded-t-lg bg-[#3F5D45]/40 dark:bg-white/20" style="height:62px"></span><span class="text-[10px] opacity-60">SUN</span></div></div><p class="text-xs opacity-70 mt-3">399 covers · Fri–Sat peak (demo).</p></div>
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-6"><h2 class="font-serif text-lg font-bold">Pending tasks</h2><label class="flex items-center gap-3 text-sm mt-3"><input type="checkbox" class="accent-[#3F5D45] w-4 h-4"/> Confirm 3 pending tables</label><label class="flex items-center gap-3 text-sm mt-2"><input type="checkbox" class="accent-[#3F5D45] w-4 h-4"/> Call Green Valley re Delicata ×40</label><label class="flex items-center gap-3 text-sm mt-2"><input type="checkbox" class="accent-[#3F5D45] w-4 h-4"/> Print GF-flagged tickets</label><label class="flex items-center gap-3 text-sm mt-2"><input type="checkbox" checked class="accent-[#3F5D45] w-4 h-4"/> Winter menu preview sent</label></div>
+</div>
+</section>
+
+<!-- PANEL: RESERVATIONS -->
+<section data-apanel="reservations" id="res" class="hidden">
+<div class="mt-6 rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-5 md:p-6"><div class="flex flex-wrap items-center justify-between gap-3"><div><h2 class="font-serif text-xl font-bold">Reservations</h2><p class="text-sm opacity-70">Confirm, complete or cancel — demo actions update the pill.</p></div><div class="flex gap-2 text-[11px] font-bold"><span class="px-3 py-1.5 rounded-full bg-amber-100 text-amber-800">3 Pending</span><span class="px-3 py-1.5 rounded-full bg-green-100 text-green-800">15 Confirmed</span></div></div>
+<div class="flex flex-wrap items-center gap-2 mt-4 text-xs font-bold"><span class="px-3 py-1.5 rounded-full bg-[#3F5D45] text-white">All dates</span><button class="px-3 py-1.5 rounded-full border hover:border-[#3F5D45]" onclick="showToast('Filtered: tonight (demo).')">Tonight</button><button class="px-3 py-1.5 rounded-full border hover:border-[#3F5D45]" onclick="showToast('Filtered: this weekend (demo).')">This weekend</button><button class="px-3 py-1.5 rounded-full border hover:border-[#3F5D45]" onclick="showToast('Reservation list exported (demo).')">Export ↓</button></div>
+<div class="table-scroll mt-3 rounded-xl border"><table class="w-full text-sm">
+<thead><tr class="text-xs uppercase opacity-60"><th class="text-start p-3">Guest</th><th class="text-start p-3">Date</th><th class="text-start p-3">Time</th><th class="text-start p-3">Guests</th><th class="text-start p-3">Experience</th><th class="text-start p-3">Status</th><th class="text-start p-3">Actions</th></tr></thead>
+<tbody>
+<tr class="border-t"><td class="p-3 font-semibold">Maya R.</td><td class="p-3">Oct 24</td><td class="p-3">7:30 PM</td><td class="p-3">2</td><td class="p-3">Tasting</td><td class="p-3"><span data-pill class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800">Pending</span></td><td class="p-3"><div class="flex gap-1.5"><button data-status="Confirmed" class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-green-600 text-white">Confirm</button><button data-status="Cancelled" class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-red-100 text-red-700">Cancel</button></div></td></tr>
+<tr class="border-t"><td class="p-3 font-semibold">Jonas K.</td><td class="p-3">Oct 24</td><td class="p-3">6:00 PM</td><td class="p-3">4</td><td class="p-3">Harvest Table</td><td class="p-3"><span data-pill class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-green-100 text-green-800">Confirmed</span></td><td class="p-3"><div class="flex gap-1.5"><button data-status="Completed" class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-stone-700 text-white">Complete</button><button data-status="Cancelled" class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-red-100 text-red-700">Cancel</button></div></td></tr>
+<tr class="border-t"><td class="p-3 font-semibold">Priya S.</td><td class="p-3">Oct 25</td><td class="p-3">7:00 PM</td><td class="p-3">2</td><td class="p-3">Tasting (GF)</td><td class="p-3"><span data-pill class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-green-100 text-green-800">Confirmed</span></td><td class="p-3"><div class="flex gap-1.5"><button data-status="Completed" class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-stone-700 text-white">Complete</button><button data-status="Cancelled" class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-red-100 text-red-700">Cancel</button></div></td></tr>
+<tr class="border-t"><td class="p-3 font-semibold">Theo B.</td><td class="p-3">Oct 25</td><td class="p-3">8:30 PM</td><td class="p-3">6</td><td class="p-3">Supper Club</td><td class="p-3"><span data-pill class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800">Pending</span></td><td class="p-3"><div class="flex gap-1.5"><button data-status="Confirmed" class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-green-600 text-white">Confirm</button><button data-status="Cancelled" class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-red-100 text-red-700">Cancel</button></div></td></tr>
+<tr class="border-t"><td class="p-3 font-semibold">Ana L.</td><td class="p-3">Oct 26</td><td class="p-3">6:00 PM</td><td class="p-3">2</td><td class="p-3">Tasting (V)</td><td class="p-3"><span data-pill class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800">Pending</span></td><td class="p-3"><div class="flex gap-1.5"><button data-status="Confirmed" class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-green-600 text-white">Confirm</button><button data-status="Cancelled" class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-red-100 text-red-700">Cancel</button></div></td></tr>
+</tbody></table></div></div>
+</section>
+
+<!-- PANEL: SEASONAL MENU -->
+<section data-apanel="menu" id="menuA" class="hidden">
+<div class="mt-6 rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-5 md:p-6"><div class="flex flex-wrap justify-between items-center gap-3"><div><h2 class="font-serif text-xl font-bold">Seasonal Menu · Autumn</h2><p class="text-sm opacity-70">5 dishes live · 1 low — demo catalogue.</p></div><button id="addDish" class="px-4 py-2 rounded-full bg-[#3F5D45] text-white text-xs font-bold">+ Add Menu Item</button></div>
+<div class="table-scroll mt-3 rounded-xl border"><table class="w-full text-sm"><thead><tr class="text-xs uppercase opacity-60"><th class="text-start p-3">Dish</th><th class="text-start p-3">Category</th><th class="text-start p-3">Tags</th><th class="text-start p-3">Avail.</th><th class="text-start p-3">Action</th></tr></thead>
+<tbody>
+<tr class="border-t"><td class="p-3 font-semibold">Wild Mushroom Risotto</td><td class="p-3">Garden</td><td class="p-3">V, GF</td><td class="p-3">Available</td><td class="p-3"><div class="flex gap-1.5"><button class="text-[11px] font-bold px-2.5 py-1 rounded-full border">Edit</button><button data-remove-dish class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-red-100 text-red-700">Remove</button></div></td></tr>
+<tr class="border-t"><td class="p-3 font-semibold">Wood-Fired Squash</td><td class="p-3">Garden</td><td class="p-3">V, GF, N</td><td class="p-3">Available</td><td class="p-3"><div class="flex gap-1.5"><button class="text-[11px] font-bold px-2.5 py-1 rounded-full border">Edit</button><button data-remove-dish class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-red-100 text-red-700">Remove</button></div></td></tr>
+<tr class="border-t"><td class="p-3 font-semibold">Herb-Roasted Chicken</td><td class="p-3">From the Farm</td><td class="p-3">GF, DF</td><td class="p-3">Low</td><td class="p-3"><div class="flex gap-1.5"><button class="text-[11px] font-bold px-2.5 py-1 rounded-full border">Edit</button><button data-remove-dish class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-red-100 text-red-700">Remove</button></div></td></tr>
+<tr class="border-t"><td class="p-3 font-semibold">Harvest Grain Bowl</td><td class="p-3">Bowls</td><td class="p-3">VG, GF</td><td class="p-3">Available</td><td class="p-3"><div class="flex gap-1.5"><button class="text-[11px] font-bold px-2.5 py-1 rounded-full border">Edit</button><button data-remove-dish class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-red-100 text-red-700">Remove</button></div></td></tr>
+<tr class="border-t"><td class="p-3 font-semibold">Stone Fruit Tart</td><td class="p-3">Dessert</td><td class="p-3">V, N</td><td class="p-3">Available</td><td class="p-3"><div class="flex gap-1.5"><button class="text-[11px] font-bold px-2.5 py-1 rounded-full border">Edit</button><button data-remove-dish class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-red-100 text-red-700">Remove</button></div></td></tr>
+</tbody></table></div>
+<div class="mt-3 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 p-4 text-sm"><p class="font-bold text-amber-800 dark:text-amber-200">⚠ Low stock: Herb-Roasted Chicken</p><p class="text-xs opacity-75 mt-0.5">Farm delivery Friday — consider 86ing after tonight or subbing grain bowl.</p></div></div>
+</section>
+
+<!-- PANEL: EVENTS + GUESTS -->
+<section data-apanel="events" id="eventsA" class="hidden">
+<div class="mt-6 grid lg:grid-cols-2 gap-6">
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-5"><div class="flex flex-wrap items-center justify-between gap-2"><h2 class="font-serif text-xl font-bold">Events</h2><span class="text-[11px] font-bold px-3 py-1.5 rounded-full bg-[#3F5D45]/10 dark:bg-white/10 text-[#3F5D45] dark:text-[#9db8a1]">6 live (demo)</span></div>
+<div class="mt-3 space-y-3 text-sm">
+<div class="border rounded-xl p-3 flex justify-between items-center gap-2"><div><p class="font-bold">Harvest Table Dinner</p><p class="text-xs opacity-70">Oct 24 · 7 PM · 32/40 · Confirmed</p></div><div class="flex gap-1.5"><button data-event-act="edited" class="text-[11px] font-bold px-2.5 py-1 rounded-full border">Edit</button><button data-event-act="cancelled" class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-red-100 text-red-700">Cancel</button></div></div>
+<div class="border rounded-xl p-3 flex justify-between items-center gap-2"><div><p class="font-bold">Farmers’ Table Evening</p><p class="text-xs opacity-70">Nov 07 · 28/36 · Confirmed</p></div><button data-event-act="edited" class="text-[11px] font-bold px-2.5 py-1 rounded-full border">Edit</button></div>
+<div class="border rounded-xl p-3 flex justify-between items-center gap-2"><div><p class="font-bold">Winter Hearth Supper</p><p class="text-xs opacity-70">Dec 12 · 30/36 · Waitlist open</p></div><button data-event-act="edited" class="text-[11px] font-bold px-2.5 py-1 rounded-full border">Edit</button></div>
+<div class="border rounded-xl p-3 flex justify-between items-center gap-2"><div><p class="font-bold">Cellar & Cheese Night</p><p class="text-xs opacity-70">Dec 20 · 10/36 · Selling</p></div><div class="flex gap-1.5"><button data-event-act="edited" class="text-[11px] font-bold px-2.5 py-1 rounded-full border">Edit</button><button data-event-act="cancelled" class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-red-100 text-red-700">Cancel</button></div></div>
+</div><button data-event-act="created" class="mt-3 w-full py-2.5 rounded-full border text-xs font-bold">+ Add Event</button>
+<div class="mt-4 space-y-3 text-xs"><div><div class="flex justify-between font-bold"><span>Harvest Table</span><span>32/40</span></div><div class="h-2 rounded-full bg-black/10 dark:bg-white/10 mt-1"><div class="h-2 rounded-full bg-[#3F5D45]" style="width:80%"></div></div></div><div><div class="flex justify-between font-bold"><span>Farmers’ Table</span><span>28/36</span></div><div class="h-2 rounded-full bg-black/10 dark:bg-white/10 mt-1"><div class="h-2 rounded-full bg-[#C98B5B]" style="width:78%"></div></div></div><div><div class="flex justify-between font-bold"><span>Cellar & Cheese</span><span>10/36</span></div><div class="h-2 rounded-full bg-black/10 dark:bg-white/10 mt-1"><div class="h-2 rounded-full bg-[#3F5D45]" style="width:28%"></div></div></div></div></div>
+</div>
+</section>
+
+<!-- PANEL: GUESTS -->
+<section data-apanel="guests" id="guests" class="hidden">
+<div class="mt-6 rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-5"><div class="flex flex-wrap items-center justify-between gap-2"><h2 class="font-serif text-xl font-bold">Guests (demo)</h2><span class="text-[11px] font-bold px-3 py-1.5 rounded-full bg-[#3F5D45]/10 dark:bg-white/10 text-[#3F5D45] dark:text-[#9db8a1]">128 neighbours</span></div>
+<div class="table-scroll mt-3 rounded-xl border"><table class="w-full text-sm"><thead><tr class="text-xs uppercase opacity-60"><th class="text-start p-3">Guest</th><th class="text-start p-3">Visits</th><th class="text-start p-3">Dietary</th><th class="text-start p-3">Status</th></tr></thead>
+<tbody><tr class="border-t"><td class="p-3">Maya R.<br/><span class="text-xs opacity-60">maya@example.com</span></td><td class="p-3">6</td><td class="p-3">Vegetarian</td><td class="p-3">Regular</td></tr>
+<tr class="border-t"><td class="p-3">Jonas K.<br/><span class="text-xs opacity-60">jonas@example.com</span></td><td class="p-3">3</td><td class="p-3">GF</td><td class="p-3">New</td></tr>
+<tr class="border-t"><td class="p-3">Priya S.<br/><span class="text-xs opacity-60">priya@example.com</span></td><td class="p-3">4</td><td class="p-3">GF · DF</td><td class="p-3">Regular</td></tr>
+<tr class="border-t"><td class="p-3">Theo B.<br/><span class="text-xs opacity-60">theo@example.com</span></td><td class="p-3">2</td><td class="p-3">Nut allergy</td><td class="p-3">New</td></tr></tbody></table></div>
+<div class="flex flex-wrap gap-2 mt-4"><button class="px-4 py-2 rounded-full bg-[#3F5D45] text-white text-xs font-bold" onclick="showToast('Guest message sent (demo).')">Message Guests</button><button class="px-4 py-2 rounded-full border text-xs font-bold" onclick="showToast('Guest list exported (demo).')">Export List</button></div>
+<div class="mt-4 rounded-2xl border border-[#ece2cf] dark:border-[#3c443c] p-5 bg-[#F6F1E7] dark:bg-[#353b34]"><h3 class="font-serif text-base font-bold">Neighbour spotlight</h3><p class="text-sm opacity-80 mt-1">Maya R. — 6 visits, vegetarian, brings friends to suppers. Offer the autumn dessert on us.</p></div></div>
+</section>
+
+<!-- PANEL: SOURCING -->
+<section data-apanel="sourcing" id="sourcingA" class="hidden">
+<div class="mt-6 grid lg:grid-cols-2 gap-6">
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-5"><div class="flex flex-wrap items-center justify-between gap-2"><h2 class="font-serif text-xl font-bold">Sourcing queue (demo)</h2><button class="px-4 py-2 rounded-full border text-xs font-bold" onclick="showToast('Supplier added (demo).')">+ Supplier</button></div><ul class="text-sm mt-3 space-y-2"><li class="border rounded-xl p-3">Green Valley — Delicata ×40 · <span class="font-bold text-green-700">Arriving Tue</span></li><li class="border rounded-xl p-3">Meadow & Field — Chanterelles ×8kg · <span class="font-bold text-amber-700">Forage-dependent</span></li><li class="border rounded-xl p-3">Stone Creek — Aged parmesan ×2 wheels · <span class="font-bold">In cellar</span></li><li class="border rounded-xl p-3">Willow Orchard — Suncrisp ×30 crates · <span class="font-bold text-green-700">Arriving Fri</span></li></ul>
+<div class="mt-4 rounded-xl bg-[#F6F1E7] dark:bg-[#353b34] border border-[#ece2cf] dark:border-[#3c443c] p-4 text-sm"><p class="font-bold">Delivery rhythm</p><p class="text-xs opacity-75 mt-1">Tue — greens & roots · Fri — orchard & dairy · Forage runs weather-dependent.</p></div></div>
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-5"><h2 class="font-serif text-xl font-bold">Dietary flags tonight</h2><div class="flex flex-wrap gap-2 mt-3 text-xs font-bold"><span class="px-3 py-1.5 rounded-full bg-green-100 text-green-800">V ×6</span><span class="px-3 py-1.5 rounded-full bg-amber-100 text-amber-800">GF ×4</span><span class="px-3 py-1.5 rounded-full bg-orange-100 text-orange-800">Nut allergy ×1</span><span class="px-3 py-1.5 rounded-full bg-sky-100 text-sky-800">DF ×2</span><span class="px-3 py-1.5 rounded-full bg-emerald-100 text-emerald-800">VG ×3</span></div><p class="text-xs opacity-60 mt-3">Demo counts for illustration — printed on every kitchen ticket.</p><button class="mt-3 px-4 py-2 rounded-full border text-xs font-bold" onclick="showToast('Ticket reprinted (demo).')">Reprint Tickets</button></div>
+</div>
+</section>
+
+<!-- PANEL: INBOX -->
+<section data-apanel="inbox" id="inboxA" class="hidden">
+<div class="mt-6 rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-5"><div class="flex flex-wrap items-center justify-between gap-2"><h2 class="font-serif text-xl font-bold">Inbox (demo)</h2><div class="flex gap-2"><span class="text-[11px] font-bold px-3 py-1.5 rounded-full bg-amber-100 text-amber-800">3 unread</span><button class="text-[11px] font-bold px-3 py-1.5 rounded-full bg-[#3F5D45] text-white" onclick="showToast('Composer opened (demo).')">+ Compose</button></div></div><div class="grid md:grid-cols-3 gap-3 mt-4 text-sm">
+<div class="border rounded-xl p-4"><p class="font-bold">Private hire · Oct 30</p><p class="text-xs opacity-70 mt-1">18 guests, long table — reply by Friday.</p><button class="mt-3 text-xs font-bold text-[#3F5D45] dark:text-[#9db8a1]" onclick="showToast('Reply drafted (demo).')">Reply →</button></div>
+<div class="border rounded-xl p-4"><p class="font-bold">Allergy question</p><p class="text-xs opacity-70 mt-1">Celiac-safe tasting availability.</p><button class="mt-3 text-xs font-bold text-[#3F5D45] dark:text-[#9db8a1]" onclick="showToast('Reply drafted (demo).')">Reply →</button></div>
+<div class="border rounded-xl p-4"><p class="font-bold">Press · Harvest story</p><p class="text-xs opacity-70 mt-1">Autumn menu feature request.</p><button class="mt-3 text-xs font-bold text-[#3F5D45] dark:text-[#9db8a1]" onclick="showToast('Reply drafted (demo).')">Reply →</button></div>
+<div class="border rounded-xl p-4"><p class="font-bold">Supplier · Orchard crates</p><p class="text-xs opacity-70 mt-1">30 Suncrisp crates confirm Friday slot?</p><button class="mt-3 text-xs font-bold text-[#3F5D45] dark:text-[#9db8a1]" onclick="showToast('Reply drafted (demo).')">Reply →</button></div>
+<div class="border rounded-xl p-4"><p class="font-bold">Guest · Anniversary note</p><p class="text-xs opacity-70 mt-1">Quiet corner request for Oct 24.</p><button class="mt-3 text-xs font-bold text-[#3F5D45] dark:text-[#9db8a1]" onclick="showToast('Reply drafted (demo).')">Reply →</button></div>
+<div class="border rounded-xl p-4"><p class="font-bold">Team · Rota swap</p><p class="text-xs opacity-70 mt-1">Saturday floor cover — approve?</p><button class="mt-3 text-xs font-bold text-[#3F5D45] dark:text-[#9db8a1]" onclick="showToast('Rota approved (demo).')">Approve →</button></div>
+</div></div>
+</section>
+
+<!-- PANEL: SETTINGS -->
+<section data-apanel="settings" id="settingsA" class="hidden">
+<div class="mt-6 rounded-2xl bg-[#2F3028] text-[#F6F1E7] p-5 md:p-6 flex flex-col md:flex-row md:items-center gap-3 justify-between"><div><h2 class="font-serif text-xl font-bold">Season rollover</h2><p class="text-sm opacity-80">Current: Autumn · Next: Winter preview ready (demo).</p></div><div class="flex gap-2"><button data-event-act="season-preview" class="px-5 py-2.5 rounded-full bg-[#C98B5B] text-sm font-bold">Preview Winter</button><button data-event-act="settings" class="px-5 py-2.5 rounded-full border border-white/30 text-sm">Settings</button></div></div>
+<div class="mt-4 grid md:grid-cols-2 gap-4">
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-6"><h2 class="font-serif text-lg font-bold">Service hours</h2><label class="flex items-center justify-between gap-3 text-sm mt-3">Dining Tue–Sun 5–10pm<input type="checkbox" checked class="accent-[#3F5D45] w-4 h-4"/></label><label class="flex items-center justify-between gap-3 text-sm mt-2">Tasting Thu–Sat 6 & 8pm<input type="checkbox" checked class="accent-[#3F5D45] w-4 h-4"/></label><label class="flex items-center justify-between gap-3 text-sm mt-2">Supper Club Fri & Sat<input type="checkbox" checked class="accent-[#3F5D45] w-4 h-4"/></label><label class="flex items-center justify-between gap-3 text-sm mt-2">Monday garden day (closed)<input type="checkbox" checked class="accent-[#3F5D45] w-4 h-4"/></label></div>
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-6"><h2 class="font-serif text-lg font-bold">House notes</h2><label class="lbl mt-2" for="houseNote">Announcement banner</label><input id="houseNote" class="field" value="Autumn tasting · Supper Club Fri & Sat"/><div class="grid sm:grid-cols-2 gap-3 mt-3"><div><label class="lbl" for="pw1">New password</label><input id="pw1" type="password" class="field" placeholder="••••••••"/></div><div><label class="lbl" for="pw2">Confirm password</label><input id="pw2" type="password" class="field" placeholder="••••••••"/></div></div><div class="flex flex-wrap gap-2 mt-3"><button class="px-5 py-2.5 rounded-full bg-[#3F5D45] text-white text-xs font-bold" onclick="showToast('House settings saved (demo).')">Save Settings</button><button class="px-5 py-2.5 rounded-full border text-xs font-bold" onclick="showToast('Password updated (demo).')">Update Password</button></div></div>
+</div>
+</section>
+</main>
+</div>
+<script src="js/main.js"></script>
+<script>
+(function(){
+  var root = document.documentElement;
+  var store={get:function(k){try{return window.localStorage.getItem(k);}catch(e){return null;}},set:function(k,v){try{window.localStorage.setItem(k,v);}catch(e){}}};
+  function icon(){
+    var dark = root.classList.contains('dark');
+    return dark
+      ? '<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.36 6.36l-.7-.7M6.34 6.34l-.7-.7m12.02 12.02l-.7-.7M6.34 17.66l-.7-.7M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>'
+      : '<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>';
+  }
+  if(store.get('site-theme')==='dark') root.classList.add('dark');
+  if(store.get('site-theme')==='light') root.classList.remove('dark');
+  if(store.get('site-direction')==='rtl') root.dir='rtl'; else root.dir='ltr';
+  var t=document.getElementById('adminTheme');
+  function paint(){ var h=icon(); if(t) t.innerHTML=h; var s=document.querySelector('.adminThemeIcon'); if(s) s.innerHTML=h; }
+  paint();
+  function onTheme(){ var d=root.classList.toggle('dark'); store.set('site-theme',d?'dark':'light'); paint(); }
+  if(t) t.addEventListener('click',onTheme);
+  var tm=document.getElementById('adminThemeM'); if(tm) tm.addEventListener('click',onTheme);
+  function onRtl(){ var n=root.dir==='rtl'?'ltr':'rtl'; root.dir=n; store.set('site-direction',n==='rtl'?'rtl':'ltr'); }
+  var r=document.getElementById('adminRtl'); if(r) r.addEventListener('click',onRtl);
+  var rm=document.getElementById('adminRtlM'); if(rm) rm.addEventListener('click',onRtl);
+})();
+(function(){
+  function links(){ return Array.prototype.slice.call(document.querySelectorAll('[data-apanellink]')); }
+  function panels(){ return Array.prototype.slice.call(document.querySelectorAll('[data-apanel]')); }
+  function paint(name){
+    links().forEach(function(b){
+      var on=b.getAttribute('data-apanellink')===name;
+      b.classList.toggle('bg-[#3F5D45]',on); b.classList.toggle('text-white',on);
+      b.classList.toggle('hover:bg-black/5',!on); b.classList.toggle('dark:hover:bg-white/10',!on);
+      if(on) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current');
+    });
+  }
+  function closeDrawer(){
+    var sb=document.getElementById('adminSide'), ov=document.getElementById('adminOver');
+    if(window.innerWidth<1024&&sb&&ov){ sb.classList.add('-translate-x-full'); ov.classList.add('hidden'); }
+    var b=document.getElementById('adminBurger'); if(b) b.setAttribute('aria-expanded','false');
+  }
+  var cx=document.getElementById('adminClose'); if(cx) cx.addEventListener('click',closeDrawer);
+  function show(name,push){
+    if(!name) name='overview';
+    var found=false;
+    panels().forEach(function(p){ var on=p.getAttribute('data-apanel')===name; if(on) found=true; p.classList.toggle('hidden',!on); p.style.display=on?'':'none'; });
+    if(!found){ show('overview'); return; }
+    paint(name); closeDrawer();
+    if(push!==false){ try{ history.replaceState(null,'','#'+name); }catch(e){} }
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  document.addEventListener('click',function(ev){
+    var b=ev.target&&ev.target.closest?ev.target.closest('[data-apanellink]'):null;
+    if(b){ show(b.getAttribute('data-apanellink')); return; }
+    var g=ev.target&&ev.target.closest?ev.target.closest('[data-apanelgoto]'):null;
+    if(g){ show(g.getAttribute('data-apanelgoto')); }
+  });
+  var start=(location.hash||'#overview').replace('#','');
+  var alias={res:'reservations',guests:'guests',eventsA:'events',menuA:'menu'};
+  if(alias[start]) start=alias[start];
+  show(start,false);
+  window.addEventListener('hashchange',function(){ var h=(location.hash||'#overview').replace('#',''); if(alias[h]) h=alias[h]; show(h,false); });
+})();
+</script>
+</body>
+</html>

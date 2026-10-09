@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Guest Dashboard | Hearth & Harvest</title>
+<meta name="description" content="Guest dashboard — reservations, tasting menu requests, events and dietary preferences. Demo data."/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{forest:'#3F5D45',terra:'#C98B5B',linen:'#F6F1E7',earth:'#2F3028',olive:'#8A6A3F'}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="bg-[#F6F1E7] dark:bg-[#20251F] text-[#2F3028] dark:text-[#F6F1E7] font-sans antialiased">
+<div id="guestDash" class="flex min-h-screen">
+<div id="dashOver" class="hidden fixed inset-0 bg-black/50 z-40"></div>
+<aside id="dashSide" class="fixed lg:sticky top-0 bottom-0 start-0 z-50 lg:z-auto w-72 shrink-0 h-screen -translate-x-full lg:translate-x-0 transition-transform bg-white dark:bg-[#2B3029] border-e border-[#ece2cf] dark:border-[#3c443c] p-5 flex flex-col gap-1 overflow-y-auto" aria-label="Guest menu">
+<a href="index.html" class="flex items-center gap-2.5 pb-4 mb-2 border-b border-[#ece2cf] dark:border-[#3c443c]" aria-label="Hearth and Harvest home">
+<span class="w-9 h-9 rounded-full bg-[#3F5D45] dark:bg-[#6F8B72] text-white grid place-items-center" aria-hidden="true"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c-5 0-8-3.5-8-8 0-5 4-9 10-10-.5 6-1.5 10-6 12 2.5 1 3 .5 4-1 1 1.5 1.5 2 4 1-4.5 3.5-1 6 6-1.2 0-2.5 0-4 0z" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 21v-8" stroke-linecap="round"/></svg></span>
+<span class="leading-none"><span class="block font-serif text-base font-bold">Hearth <span class="italic font-accent text-[#C98B5B]">&</span> Harvest</span><span class="block text-[10.5px] tracking-[0.18em] uppercase text-[#8A6A3F] dark:text-[#C9AE8A] mt-1">Farm-to-Table · Supper Club</span></span>
+</a>
+<div class="lg:hidden flex justify-between items-center mb-3"><span class="font-serif font-bold">Guest Menu</span><button id="dashClose" aria-label="Close dashboard menu" class="w-9 h-9 grid place-items-center rounded-full border border-[#ddcfb4] dark:border-[#4a534a]"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<div class="lg:hidden grid grid-cols-2 gap-2 mb-3">
+<button id="dashThemeM" class="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl border border-[#ddcfb4] dark:border-[#4a534a] text-xs font-bold"><span class="dashThemeIcon"></span>Theme</button>
+<button id="dashRtlM" class="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl border border-[#ddcfb4] dark:border-[#4a534a] text-xs font-bold"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 12l4-4M3 12l4 4M21 12l-4-4M21 12l-4 4"/></svg>RTL / LTR</button>
+</div>
+<button type="button" data-dpanel-link="overview" class="dpanel-link px-4 py-2.5 rounded-xl bg-[#3F5D45] text-white text-sm font-semibold text-start">Overview</button>
+<button type="button" data-dpanel-link="reservations" class="dpanel-link px-4 py-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 text-sm font-semibold text-start">Reservations</button>
+<button type="button" data-dpanel-link="tasting" class="dpanel-link px-4 py-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 text-sm font-semibold text-start">Book Tasting Menu</button>
+<button type="button" data-dpanel-link="events" class="dpanel-link px-4 py-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 text-sm font-semibold text-start">Upcoming Events</button>
+<button type="button" data-dpanel-link="prefs" class="dpanel-link px-4 py-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 text-sm font-semibold text-start">Dietary Preferences</button>
+<button type="button" data-dpanel-link="history" class="dpanel-link px-4 py-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 text-sm font-semibold text-start">Reservation History</button>
+<button type="button" data-dpanel-link="profile" class="dpanel-link px-4 py-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 text-sm font-semibold text-start">Profile</button>
+<button data-logout class="mt-auto flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-red-200 dark:border-red-900/50 text-sm font-semibold text-red-700 dark:text-red-300 hover:bg-red-50 dark:hover:bg-red-900/20 transition"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12H4m0 0l4-4m-4 4l4 4M11 4h8a2 2 0 012 2v12a2 2 0 01-2 2h-8"/></svg>Logout</button>
+<p class="text-[11px] opacity-60 mt-2">Your reservation and dietary preference information is private to your guest account.</p>
+</aside>
+<main class="flex-1 min-w-0 px-4 sm:px-6 lg:px-8 py-6 md:py-8 max-w-6xl">
+<div class="sticky top-0 z-30 -mx-4 sm:-mx-6 lg:-mx-8 -mt-6 md:-mt-8 px-4 sm:px-6 lg:px-8 pt-6 md:pt-8 pb-3 bg-[#F6F1E7]/95 dark:bg-[#20251F]/95 backdrop-blur border-b border-[#ece2cf] dark:border-[#3c443c]">
+<div class="flex items-center justify-between gap-3">
+<div class="min-w-0"><h1 class="font-serif text-2xl md:text-3xl font-bold">Welcome back, Guest</h1><p class="text-sm opacity-70">Fictional/demo dashboard data.</p></div>
+<div class="flex items-center gap-2 shrink-0">
+<button id="dashTheme" aria-label="Toggle dark mode" title="Toggle theme" class="hidden lg:grid w-10 h-10 place-items-center rounded-full border border-[#ddcfb4] dark:border-[#4a534a] text-[#3F5D45] dark:text-[#F6F1E7] hover:bg-[#3F5D45] hover:text-white transition"></button>
+<button id="dashRtl" aria-label="Toggle right-to-left layout" title="Toggle RTL / LTR" class="hidden lg:grid w-10 h-10 place-items-center rounded-full border border-[#ddcfb4] dark:border-[#4a534a] text-[#3F5D45] dark:text-[#F6F1E7] hover:bg-[#C98B5B] hover:text-white hover:border-[#C98B5B] transition"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 12l4-4M3 12l4 4M21 12l-4-4M21 12l-4 4"/></svg></button>
+<button data-goto="profile" class="flex items-center gap-2.5 ps-1 pe-3 py-1 rounded-full border border-[#ddcfb4] dark:border-[#4a534a] hover:border-[#3F5D45] dark:hover:border-[#C98B5B] transition" aria-label="Open profile" title="Profile"><img src="images/testimonials/guest-1.jpg" alt="Guest profile photo" class="w-9 h-9 rounded-full object-cover"/><span class="hidden sm:block text-start leading-tight"><span class="block text-sm font-bold">Guest</span><span class="block text-[11px] opacity-60">Neighbour · 9 visits</span></span></button>
+<button id="dashBurger" aria-label="Open dashboard menu" aria-expanded="false" class="lg:hidden w-10 h-10 shrink-0 grid place-items-center rounded-full bg-[#3F5D45] text-white shadow"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+</div>
+</div>
+<!-- PANEL: OVERVIEW -->
+<section data-dpanel="overview" id="overview">
+<div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-6">
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border p-5"><p class="text-xs uppercase tracking-widest opacity-60">Next Reservation</p><p class="font-serif font-bold mt-1">Seasonal Tasting Menu</p><p class="text-sm mt-1">Oct 24, 2026 · 7:30 PM · 2 guests</p><span class="inline-block mt-2 text-[11px] font-bold px-2.5 py-1 rounded-full bg-green-100 text-green-800">Confirmed</span></div>
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border p-5"><p class="text-xs uppercase tracking-widest opacity-60">Upcoming Supper Club</p><p class="font-serif font-bold mt-1">Farmers’ Table</p><p class="text-sm mt-1">Nov 07 · 6:30 PM</p><a href="events.html" class="text-xs font-bold text-[#C98B5B]">View Event →</a></div>
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border p-5"><p class="text-xs uppercase tracking-widest opacity-60">Dietary Preferences</p><p id="prefSummary" class="text-sm mt-1 font-semibold">Vegetarian · Gluten-Free</p><a href="#prefs" class="text-xs font-bold text-[#C98B5B]">Manage →</a></div>
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border p-5"><p class="text-xs uppercase tracking-widest opacity-60">Last Visit</p><p class="font-serif font-bold mt-1">Summer Harvest Dinner</p><p class="text-sm mt-1">Sep 14 · ★★★★★</p><button data-goto="history" class="text-xs font-bold text-[#C98B5B] mt-2">History →</button></div>
+</div>
+<div class="mt-4 grid md:grid-cols-2 gap-4">
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-6"><h2 class="font-serif text-lg font-bold">Recent activity</h2><ul class="mt-3 space-y-3 text-sm"><li class="flex gap-3"><span class="w-2 h-2 mt-1.5 rounded-full bg-green-500 shrink-0"></span><span><strong>Table confirmed</strong> — Oct 24, 7:30 PM · 2 guests.<span class="block text-xs opacity-60">2 days ago</span></span></li><li class="flex gap-3"><span class="w-2 h-2 mt-1.5 rounded-full bg-[#C98B5B] shrink-0"></span><span><strong>Farmers’ Table seat held</strong> — Nov 07, 6:30 PM.<span class="block text-xs opacity-60">5 days ago</span></span></li><li class="flex gap-3"><span class="w-2 h-2 mt-1.5 rounded-full bg-[#3F5D45] shrink-0"></span><span><strong>Preferences synced</strong> — Vegetarian · Gluten-Free to kitchen ticket.<span class="block text-xs opacity-60">1 week ago</span></span></li></ul></div>
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-6"><h2 class="font-serif text-lg font-bold">Quick actions</h2><div class="flex flex-wrap gap-2 mt-3"><button data-goto="tasting" class="px-4 py-2.5 rounded-full bg-[#3F5D45] text-white text-xs font-bold">Book Tasting</button><button data-goto="events" class="px-4 py-2.5 rounded-full border text-xs font-bold">Browse Events</button><button data-goto="prefs" class="px-4 py-2.5 rounded-full border text-xs font-bold">Update Diet</button><button data-goto="profile" class="px-4 py-2.5 rounded-full border text-xs font-bold">Edit Profile</button></div><p class="text-xs opacity-70 mt-3">Tue–Sun 5–10pm · Supper Club Fri & Sat · (555) 014-7890</p></div>
+</div>
+<div class="mt-4 grid md:grid-cols-2 gap-4">
+<div class="rounded-2xl bg-[#3F5D45] text-white p-6"><h2 class="font-serif text-lg font-bold">Autumn offer (demo)</h2><p class="text-sm text-white/85 mt-1">Bring a neighbour to the Farmers' Table — second dessert on us.</p><a href="events.html" class="mt-3 inline-block px-5 py-2.5 rounded-full bg-white text-[#3F5D45] text-xs font-bold">Claim Seat</a></div>
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-6"><h2 class="font-serif text-lg font-bold">Messages</h2><ul class="text-sm mt-2 space-y-2 opacity-80"><li>• Table confirmed for Oct 24, 7:30 PM.</li><li>• New Winter Hearth date released.</li><li>• Kitchen notes your gluten-free preference.</li></ul></div>
+</div>
+</section>
+
+<!-- PANEL: RESERVATIONS -->
+<section data-dpanel="reservations" id="reservations" class="hidden">
+<div class="mt-6 rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-6"><div class="flex flex-wrap items-center justify-between gap-3"><div><h2 class="font-serif text-xl font-bold">My Reservations</h2><p class="text-sm opacity-70">Upcoming tables — manage or add a new one.</p></div><button data-goto="tasting" class="px-5 py-2.5 rounded-full bg-[#3F5D45] text-white text-xs font-bold">+ New Reservation</button></div>
+<div class="table-scroll mt-4 rounded-xl border border-[#ece2cf] dark:border-[#3c443c]"><table class="w-full text-sm"><thead><tr class="text-xs uppercase tracking-wider opacity-60"><th class="text-start p-3">Date</th><th class="text-start p-3">Experience</th><th class="text-start p-3">Guests</th><th class="text-start p-3">Status</th><th class="text-start p-3">Manage</th></tr></thead>
+<tbody>
+<tr class="border-t"><td class="p-3 whitespace-nowrap">Oct 24 · 7:30 PM</td><td class="p-3">Seasonal Tasting Menu</td><td class="p-3">2 Guests</td><td class="p-3"><span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-green-100 text-green-800">Confirmed</span></td><td class="p-3"><div class="flex gap-2"><button class="text-xs font-bold text-[#3F5D45] dark:text-[#9db8a1]" onclick="showToast('Reschedule request sent (demo).')">Reschedule</button><button class="text-xs font-bold text-red-600" onclick="showToast('Cancellation is a demo — table kept.')">Cancel</button></div></td></tr>
+<tr class="border-t"><td class="p-3 whitespace-nowrap">Nov 07 · 6:30 PM</td><td class="p-3">Farmers’ Table Supper</td><td class="p-3">2 Guests</td><td class="p-3"><span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800">Seat held</span></td><td class="p-3"><div class="flex gap-2"><button class="text-xs font-bold text-[#3F5D45] dark:text-[#9db8a1]" onclick="showToast('Reschedule request sent (demo).')">Reschedule</button><button class="text-xs font-bold text-red-600" onclick="showToast('Cancellation is a demo — seat kept.')">Cancel</button></div></td></tr>
+<tr class="border-t"><td class="p-3 whitespace-nowrap">Dec 12 · 7:30 PM</td><td class="p-3">Winter Hearth Supper</td><td class="p-3">4 Guests</td><td class="p-3"><span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800">Waitlist</span></td><td class="p-3"><button class="text-xs font-bold text-[#C98B5B]" onclick="showToast('We’ll message you if seats open (demo).')">Notify me</button></td></tr>
+</tbody></table></div>
+<p class="text-xs opacity-70 mt-3">Free changes up to 48h before · parties of 7+ use Private Hire via Contact.</p></div>
+</section>
+
+<!-- PANEL: BOOK TASTING -->
+<section data-dpanel="tasting" id="reserve" class="hidden">
+<div id="reserve-card" class="mt-6 rounded-2xl bg-white dark:bg-[#2B3029] border p-6"><h2 class="font-serif text-xl font-bold">Reserve a Seasonal Tasting Menu</h2>
+<form id="tasteForm" class="grid sm:grid-cols-2 gap-4 mt-4">
+<div><label class="lbl" for="tGuests">Number of guests</label><select id="tGuests" class="field"><option>2</option><option>1</option><option>3</option><option>4</option><option>6</option></select></div>
+<div><label class="lbl" for="tDate">Preferred date</label><input id="tDate" type="date" class="field" value="2026-10-24"/></div>
+<div><label class="lbl" for="tTime">Preferred time</label><select id="tTime" class="field"><option>7:30 PM</option><option>6:00 PM</option><option>8:30 PM</option></select></div>
+<div><label class="lbl" for="tOcc">Special occasion</label><input id="tOcc" class="field" placeholder="Birthday, anniversary…"/></div>
+<div class="sm:col-span-2"><label class="lbl" for="tNotes">Notes / dietary</label><textarea id="tNotes" class="field" rows="2" placeholder="Allergies, seating wishes…"></textarea></div>
+<button class="sm:col-span-2 py-3 rounded-full bg-[#3F5D45] text-white text-sm font-semibold">Request Reservation</button>
+</form></div>
+<div class="mt-4 rounded-2xl bg-[#F6F1E7] dark:bg-[#353b34] border border-[#ece2cf] dark:border-[#3c443c] p-6"><h3 class="font-serif text-lg font-bold">What the tasting includes</h3><ol class="mt-3 grid sm:grid-cols-2 gap-2 text-sm"><li class="flex gap-2"><strong class="text-[#C98B5B]">01</strong> Orchard soup · squash</li><li class="flex gap-2"><strong class="text-[#C98B5B]">02</strong> Garden roots · herbs</li><li class="flex gap-2"><strong class="text-[#C98B5B]">03</strong> Hearth mushroom risotto</li><li class="flex gap-2"><strong class="text-[#C98B5B]">04</strong> Farm bird · jus</li><li class="flex gap-2"><strong class="text-[#C98B5B]">05</strong> Orchard tart · vanilla</li><li class="flex gap-2"><strong class="text-[#C98B5B]">+</strong> Pairing +$30 demo</li></ol><p class="text-xs opacity-70 mt-3">5 courses · $65 demo · 90 min · Thu–Sat seatings 6 & 8 PM.</p></div>
+</section>
+
+<!-- PANEL: EVENTS -->
+<section data-dpanel="events" id="events" class="hidden">
+<div class="mt-6 flex flex-wrap items-end justify-between gap-3"><div><h2 class="font-serif text-xl font-bold">Upcoming Events</h2><p class="text-sm opacity-70">Your supper seats — plus more from the season.</p></div><a href="events.html" class="text-xs font-bold text-[#C98B5B]">All supper dates →</a></div>
+<div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 mt-4">
+<div class="rounded-2xl overflow-hidden bg-white dark:bg-[#2B3029] border"><img loading="lazy" src="images/dishes/dishes-new11.jpg" alt="Harvest Table Dinner" class="h-32 w-full object-cover"/><div class="p-4"><p class="font-bold text-sm">Harvest Table Dinner</p><p class="text-xs opacity-70">October 24 · 7 PM</p><p class="text-[11px] font-bold text-green-700 mt-1">● 2 seats booked</p><a href="events.html" class="text-xs font-bold text-[#C98B5B]">View Event →</a></div></div>
+<div class="rounded-2xl overflow-hidden bg-white dark:bg-[#2B3029] border"><img loading="lazy" src="images/dishes/dishes-new12.jpg" alt="Farmers Table" class="h-32 w-full object-cover"/><div class="p-4"><p class="font-bold text-sm">Farmers’ Table</p><p class="text-xs opacity-70">November 7 · 6:30 PM</p><p class="text-[11px] font-bold text-amber-700 mt-1">● Seat held — confirm?</p><a href="events.html" class="text-xs font-bold text-[#C98B5B]">View Event →</a></div></div>
+<div class="rounded-2xl overflow-hidden bg-white dark:bg-[#2B3029] border"><img loading="lazy" src="images/dishes/dishes-new13.jpg" alt="Winter Hearth Supper" class="h-32 w-full object-cover"/><div class="p-4"><p class="font-bold text-sm">Winter Hearth Supper</p><p class="text-xs opacity-70">December 12 · 7:30 PM</p><p class="text-[11px] font-bold opacity-60 mt-1">○ Waitlist — 4 guests</p><a href="events.html" class="text-xs font-bold text-[#C98B5B]">View Event →</a></div></div>
+<div class="rounded-2xl overflow-hidden bg-white dark:bg-[#2B3029] border"><img loading="lazy" src="images/dishes/dishes-new14.jpg" alt="Chef Collaboration Night" class="h-32 w-full object-cover"/><div class="p-4"><p class="font-bold text-sm">Chef Collaboration Night</p><p class="text-xs opacity-70">November 21 · 7 PM</p><p class="text-[11px] font-bold opacity-60 mt-1">○ 6 seats left (demo)</p><a href="events.html" class="text-xs font-bold text-[#C98B5B]">View Event →</a></div></div>
+<div class="rounded-2xl overflow-hidden bg-white dark:bg-[#2B3029] border"><img loading="lazy" src="images/dishes/dishes-new15.jpg" alt="Orchard Late-Summer Feast" class="h-32 w-full object-cover"/><div class="p-4"><p class="font-bold text-sm">Orchard Late-Summer Feast</p><p class="text-xs opacity-70">October 10 · 6 PM</p><p class="text-[11px] font-bold opacity-60 mt-1">○ Sold out (demo)</p><a href="events.html" class="text-xs font-bold text-[#C98B5B]">View Event →</a></div></div>
+<div class="rounded-2xl overflow-hidden bg-white dark:bg-[#2B3029] border"><img loading="lazy" src="images/dishes/dishes-new16.jpg" alt="Cellar and Cheese Night" class="h-32 w-full object-cover"/><div class="p-4"><p class="font-bold text-sm">Cellar & Cheese Night</p><p class="text-xs opacity-70">December 20 · 7 PM</p><p class="text-[11px] font-bold opacity-60 mt-1">○ 10 seats left (demo)</p><a href="events.html" class="text-xs font-bold text-[#C98B5B]">View Event →</a></div></div>
+</div></section>
+<!-- PANEL: PREFS -->
+<section data-dpanel="prefs" id="prefs" class="hidden">
+<div class="mt-6 rounded-2xl bg-white dark:bg-[#2B3029] border p-6"><h2 class="font-serif text-xl font-bold">My Dietary Preferences</h2><p class="text-sm opacity-70 mt-1">Saved to your guest profile — the kitchen sees them on every ticket.</p>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4 text-sm">
+<label class="flex items-center gap-2 border rounded-xl px-3 py-2.5"><input type="checkbox" value="Vegetarian" class="accent-[#3F5D45]"/> Vegetarian</label>
+<label class="flex items-center gap-2 border rounded-xl px-3 py-2.5"><input type="checkbox" value="Vegan" class="accent-[#3F5D45]"/> Vegan</label>
+<label class="flex items-center gap-2 border rounded-xl px-3 py-2.5"><input type="checkbox" value="Gluten-Free" class="accent-[#3F5D45]"/> Gluten-Free</label>
+<label class="flex items-center gap-2 border rounded-xl px-3 py-2.5"><input type="checkbox" value="Dairy-Free" class="accent-[#3F5D45]"/> Dairy-Free</label>
+<label class="flex items-center gap-2 border rounded-xl px-3 py-2.5"><input type="checkbox" value="Nut Allergy" class="accent-[#3F5D45]"/> Nut Allergy</label>
+<label class="flex items-center gap-2 border rounded-xl px-3 py-2.5"><input type="checkbox" value="Shellfish Allergy" class="accent-[#3F5D45]"/> Shellfish Allergy</label>
+</div>
+<label class="lbl mt-4" for="prefNotes">Additional notes</label><textarea id="prefNotes" class="field" rows="2" placeholder="Anything else we should know…"></textarea>
+<div class="flex flex-wrap items-center gap-3 mt-4"><button id="prefSave" class="px-6 py-3 rounded-full bg-[#C98B5B] text-white text-sm font-semibold">Save Preferences</button><p class="text-xs opacity-70">Current ticket: <span class="font-semibold">Vegetarian · Gluten-Free</span></p></div></div>
+<div class="mt-4 rounded-2xl border border-[#ece2cf] dark:border-[#3c443c] p-6 bg-[#F6F1E7] dark:bg-[#353b34]"><h3 class="font-serif text-lg font-bold">How the kitchen uses this</h3><ul class="text-sm mt-2 space-y-1.5 opacity-80"><li>• Every course adapts — no need to re-explain at the table.</li><li>• Supper club menus print with your needs flagged.</li><li>• Update anytime; changes apply to future bookings.</li></ul></div>
+</section>
+<!-- PANEL: HISTORY -->
+<section data-dpanel="history" id="history" class="hidden">
+<div class="mt-6 rounded-2xl bg-white dark:bg-[#2B3029] border p-6"><div class="flex flex-wrap items-center justify-between gap-3"><div><h2 class="font-serif text-xl font-bold">Reservation History</h2><p class="text-sm opacity-70">9 visits · guest since 2024 (demo).</p></div><span class="text-[11px] font-bold px-3 py-1.5 rounded-full bg-[#3F5D45]/10 dark:bg-white/10 text-[#3F5D45] dark:text-[#9db8a1]">★★★★★ regular</span></div>
+<div class="table-scroll mt-3 rounded-xl border"><table class="w-full text-sm"><thead><tr class="text-xs uppercase tracking-wider opacity-60"><th class="text-start p-3">Date</th><th class="text-start p-3">Experience</th><th class="text-start p-3">Guests</th><th class="text-start p-3">Rating</th><th class="text-start p-3">Status</th></tr></thead>
+<tbody><tr class="border-t"><td class="p-3 whitespace-nowrap">Sep 14</td><td class="p-3">Summer Harvest Dinner</td><td class="p-3">2 Guests</td><td class="p-3">★★★★★</td><td class="p-3"><span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-stone-200 text-stone-700">Completed</span></td></tr>
+<tr class="border-t"><td class="p-3 whitespace-nowrap">Aug 02</td><td class="p-3">Chef Collaboration</td><td class="p-3">4 Guests</td><td class="p-3">★★★★★</td><td class="p-3"><span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-stone-200 text-stone-700">Completed</span></td></tr>
+<tr class="border-t"><td class="p-3 whitespace-nowrap">Jun 21</td><td class="p-3">Orchard Late-Summer Feast</td><td class="p-3">2 Guests</td><td class="p-3">★★★★☆</td><td class="p-3"><span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-stone-200 text-stone-700">Completed</span></td></tr>
+<tr class="border-t"><td class="p-3 whitespace-nowrap">Apr 12</td><td class="p-3">Spring Greens Tasting</td><td class="p-3">2 Guests</td><td class="p-3">★★★★★</td><td class="p-3"><span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-stone-200 text-stone-700">Completed</span></td></tr></tbody></table></div>
+<div class="flex flex-wrap gap-2 mt-4"><button data-goto="tasting" class="px-5 py-2.5 rounded-full bg-[#3F5D45] text-white text-xs font-bold">Book again</button><button data-goto="events" class="px-5 py-2.5 rounded-full border text-xs font-bold">Try a supper night</button></div></div>
+</section>
+<!-- PANEL: PROFILE -->
+<section data-dpanel="profile" id="profile" class="hidden">
+<div class="mt-6 grid md:grid-cols-2 gap-4 mb-2">
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-6"><div class="flex items-center gap-4"><span class="w-14 h-14 grid place-items-center rounded-full bg-[#3F5D45] text-white text-xl font-bold">G</span><div><h2 class="font-serif text-xl font-bold">Guest Profile</h2><p class="text-sm opacity-75">guest@hearthharvest-demo.com · 9 visits</p><span class="inline-block mt-1 text-[11px] font-bold px-2.5 py-1 rounded-full bg-[#C98B5B]/15 text-[#8A6A3F] dark:text-[#e8b98a]">Neighbour since 2024</span></div></div>
+<div class="grid sm:grid-cols-2 gap-3 mt-4 text-sm"><div><label class="lbl" for="pfName">Name</label><input id="pfName" class="field" value="Guest"/></div><div><label class="lbl" for="pfPhone">Phone</label><input id="pfPhone" class="field" value="(555) 010-2030"/></div></div>
+<div class="flex flex-wrap gap-2 mt-4"><button class="px-5 py-2.5 rounded-full bg-[#3F5D45] text-white text-xs font-bold" onclick="showToast('Profile saved (demo).')">Save Details</button><a href="booking.html" class="px-5 py-2.5 rounded-full bg-[#C98B5B] text-white text-xs font-bold">New Reservation</a><a href="contact.html" class="px-5 py-2.5 rounded-full border text-xs font-bold">Support</a></div></div>
+<div class="flex flex-col gap-4">
+<div class="rounded-2xl border border-[#ece2cf] dark:border-[#3c443c] p-6 bg-[#F6F1E7] dark:bg-[#353b34]"><h2 class="font-serif text-lg font-bold">Good to know</h2><p class="text-xs opacity-70 mt-1">Demo dashboard — data is fictional. Reservations recommended for tasting menus; dietary notes sync to the kitchen ticket.</p><p class="text-xs opacity-70 mt-2">Tue–Sun 5–10pm · 14 Orchard Lane · (555) 014-7890</p></div>
+<div class="rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-6"><h2 class="font-serif text-lg font-bold">Notifications</h2><label class="flex items-center justify-between gap-3 text-sm mt-3">New supper dates<input type="checkbox" checked class="accent-[#3F5D45] w-4 h-4"/></label><label class="flex items-center justify-between gap-3 text-sm mt-2">Seasonal menu changes<input type="checkbox" checked class="accent-[#3F5D45] w-4 h-4"/></label><label class="flex items-center justify-between gap-3 text-sm mt-2">Offers & neighbours’ tables<input type="checkbox" class="accent-[#3F5D45] w-4 h-4"/></label></div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<script src="js/main.js"></script>
+<script>
+(function(){
+  var root = document.documentElement;
+  var store={get:function(k){try{return window.localStorage.getItem(k);}catch(e){return null;}},set:function(k,v){try{window.localStorage.setItem(k,v);}catch(e){}}};
+  function icon(){
+    var dark = root.classList.contains('dark');
+    return dark
+      ? '<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.36 6.36l-.7-.7M6.34 6.34l-.7-.7m12.02 12.02l-.7-.7M6.34 17.66l-.7-.7M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>'
+      : '<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>';
+  }
+  if(store.get('site-theme')==='dark') root.classList.add('dark');
+  if(store.get('site-theme')==='light') root.classList.remove('dark');
+  if(store.get('site-direction')==='rtl') root.dir='rtl'; else root.dir='ltr';
+  var t=document.getElementById('dashTheme');
+  var tm=document.getElementById('dashThemeM');
+  function paint(){ var h=icon(); if(t) t.innerHTML=h; var s=document.querySelector('.dashThemeIcon'); if(s) s.innerHTML=h; }
+  paint();
+  function onTheme(){
+    var d=root.classList.toggle('dark');
+    store.set('site-theme',d?'dark':'light'); paint();
+  }
+  if(t) t.addEventListener('click',onTheme);
+  if(tm) tm.addEventListener('click',onTheme);
+  var r=document.getElementById('dashRtl');
+  var rm=document.getElementById('dashRtlM');
+  function onRtl(){
+    var n=root.dir==='rtl'?'ltr':'rtl'; root.dir=n;
+    store.set('site-direction',n==='rtl'?'rtl':'ltr');
+  }
+  if(r) r.addEventListener('click',onRtl);
+  if(rm) rm.addEventListener('click',onRtl);
+})();
+(function(){
+  var ACTIVE=['bg-[#3F5D45]','text-white'];
+  var IDLE=['hover:bg-black/5','dark:hover:bg-white/10'];
+  function links(){ return Array.prototype.slice.call(document.querySelectorAll('[data-dpanel-link]')); }
+  function panels(){ return Array.prototype.slice.call(document.querySelectorAll('[data-dpanel]')); }
+  function paint(name){
+    links().forEach(function(b){
+      var on=b.getAttribute('data-dpanel-link')===name;
+      ACTIVE.forEach(function(c){ b.classList.toggle(c,on); });
+      IDLE.forEach(function(c){ b.classList.toggle(c,!on); });
+      if(on) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current');
+    });
+  }
+  function closeDrawer(){
+    var sb=document.getElementById('dashSide'), ov=document.getElementById('dashOver');
+    if(window.innerWidth<1024&&sb&&ov){ sb.classList.add('-translate-x-full'); ov.classList.add('hidden'); }
+    var b=document.getElementById('dashBurger'); if(b) b.setAttribute('aria-expanded','false');
+  }
+  var cx=document.getElementById('dashClose');
+  if(cx) cx.addEventListener('click',closeDrawer);
+  function show(name,push){
+    if(!name) name='overview';
+    var found=false;
+    panels().forEach(function(p){
+      var on=p.getAttribute('data-dpanel')===name;
+      if(on) found=true;
+      p.classList.toggle('hidden',!on); p.style.display=on?'':'none';
+    });
+    if(!found) { show('overview'); return; }
+    paint(name);
+    closeDrawer();
+    if(push!==false){ try{ history.replaceState(null,'','#'+name); }catch(e){} }
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  document.addEventListener('click',function(ev){
+    var b=ev.target&&ev.target.closest?ev.target.closest('[data-dpanel-link]'):null;
+    if(b){ show(b.getAttribute('data-dpanel-link')); return; }
+    var g=ev.target&&ev.target.closest?ev.target.closest('[data-goto]'):null;
+    if(g){ show(g.getAttribute('data-goto')); }
+  });
+  var start=(location.hash||'#overview').replace('#','');
+  show(start,false);
+  window.addEventListener('hashchange',function(){
+    show((location.hash||'#overview').replace('#',''),false);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+/* Hearth & Harvest — custom CSS. Tailwind handles majority of styling. */
+:root{
+  --forest:#3F5D45;
+  --terra:#C98B5B;
+  --linen:#F6F1E7;
+  --char:#2F3028;
+  --olive:#8A6A3F;
+  --deep:#20251F;
+  --surface:#2B3029;
+  --muted-green:#6F8B72;
+}
+html{scroll-behavior:smooth}
+/* overflow-x: clip (not hidden) preserves position: sticky on #siteHeader.
+   `hidden` creates a scroll container on some browsers and breaks sticky. */
+html,body{overflow-x:clip}
+@supports not (overflow: clip){
+  html,body{overflow-x:hidden}
+}
+/* Sticky navbar — explicit (Tailwind `sticky top-0 z-50` also applied in navbar.js) */
+#navbar{position:sticky;top:0;z-index:50}
+#siteHeader{position:-webkit-sticky;position:sticky;top:0;z-index:50}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--linen);color:var(--char)}
+.font-serif-d{font-family:'Playfair Display',Georgia,serif}
+.font-accent{font-family:'Cormorant Garamond',Georgia,serif}
+.dark body, body.dark{background:#20251F;color:#F6F1E7}
+.dark{background:#20251F;color:#F6F1E7}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .hero-kenburns,.hero-rise{opacity:1;transform:none;animation:none}
+  html{scroll-behavior:auto}
+  *{animation-duration:.001s !important;transition-duration:.001s !important}
+}
+
+/* Organic blob divider */
+.organic-divider{display:block;width:100%;height:48px}
+
+/* Hero — cinematic + elegant entrance */
+@keyframes heroKenBurns{from{transform:scale(1.14)}to{transform:scale(1.02)}}
+.hero-kenburns{transform:scale(1.02);animation:heroKenBurns 9s ease-out forwards}
+@keyframes heroRise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.hero-rise{opacity:0;animation:heroRise .9s cubic-bezier(.22,.61,.36,1) forwards}
+.hero-rise-1{animation-delay:.1s}.hero-rise-2{animation-delay:.25s}
+.hero-rise-3{animation-delay:.45s}.hero-rise-4{animation-delay:.6s}
+.hero-rise-5{animation-delay:.75s}
+
+/* Card hover */
+.card-lift{transition:transform .35s ease,box-shadow .35s ease}
+.card-lift:hover{transform:translateY(-6px);box-shadow:0 20px 40px -18px rgba(47,48,40,.35)}
+
+/* Buttons */
+.btn-primary{background:var(--forest);color:#fff;transition:.3s}
+.btn-primary:hover{background:#334c38;transform:translateY(-1px)}
+.btn-terra{background:var(--terra);color:#fff;transition:.3s}
+.btn-terra:hover{background:#b67a4d;transform:translateY(-1px)}
+
+/* Seasonal tab active */
+.season-tab.active{background:var(--forest);color:#fff;border-color:var(--forest)}
+.dark .season-tab.active{background:var(--terra);border-color:var(--terra)}
+
+/* Event modal */
+#event-modal-backdrop{transition:opacity .3s ease}
+#event-modal-panel{transition:transform .35s ease,opacity .35s ease}
+
+/* Toast */
+#toast-wrap{position:fixed;bottom:1.25rem;inset-inline:0;display:flex;flex-direction:column;align-items:center;gap:.6rem;z-index:100;pointer-events:none;padding:0 1rem}
+.toast{pointer-events:auto;display:flex;align-items:center;gap:.75rem;background:#2F3028;color:#F6F1E7;padding:.8rem 1rem;border-radius:.9rem;box-shadow:0 12px 30px rgba(0,0,0,.25);border-inline-start:4px solid var(--terra);animation:toastIn .35s ease;max-width:26rem;width:100%}
+.dark .toast{background:#F6F1E7;color:#20251F}
+@keyframes toastIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.toast.hide{opacity:0;transform:translateY(8px);transition:.3s}
+
+/* Nav dropdown */
+.nav-drop{opacity:0;visibility:hidden;transform:translateY(8px);transition:.25s}
+.group\/nav:hover .nav-drop,.group\/nav:focus-within .nav-drop{opacity:1;visibility:visible;transform:none}
+[dir="rtl"] .flip-rtl{transform:scaleX(-1)}
+
+/* Active nav item (desktop links, dropdown parents, mobile menu) */
+#siteHeader .nav-active{color:#3F5D45;font-weight:600}
+.dark #siteHeader .nav-active{color:#C98B5B}
+#siteHeader .nav-active.rounded-full{border-color:#3F5D45}
+.dark #siteHeader .nav-active.rounded-full{border-color:#C98B5B}
+#mobileMenu .nav-active{background:rgba(63,93,69,.12);border-radius:.7rem;padding-inline:.6rem}
+#siteHeader .nav-drop .nav-active{background:rgba(63,93,69,.1)}
+.dark #mobileMenu .nav-active{background:rgba(201,139,91,.18)}
+.dark #siteHeader .nav-drop .nav-active{background:rgba(201,139,91,.16)}
+
+/* Botanical border */
+.leaf-rule{display:flex;align-items:center;gap:.75rem;justify-content:center}
+.leaf-rule::before,.leaf-rule::after{content:"";height:1px;width:64px;background:linear-gradient(90deg,transparent,var(--terra));opacity:.7}
+.leaf-rule::after{background:linear-gradient(90deg,var(--terra),transparent)}
+
+/* Table scroll */
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.table-scroll table{min-width:640px}
+
+/* FAQ */
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-item.open .faq-a{max-height:300px}
+.faq-item.open .faq-chevron{transform:rotate(180deg)}
+.faq-chevron{transition:.3s}
+
+/* Lightbox-ish image zoom */
+.zoom-img img{transition:transform .8s ease}
+.zoom-img:hover img{transform:scale(1.05)}
+
+/* Back to top */
+#toTop{opacity:0;visibility:hidden;transition:.3s;transform:translateY(8px)}
+#toTop.show{opacity:1;visibility:visible;transform:none}
+
+/* Mobile menu */
+#mobileMenu{transition:transform .35s ease,opacity .35s ease}
+
+/* Inputs */
+.field{background:#fff;border:1px solid #e3d9c6;border-radius:.75rem;padding:.7rem .9rem;width:100%;color:#2F3028}
+.dark .field{background:#2B3029;border-color:#454c43;color:#F6F1E7}
+.field:focus{outline:2px solid var(--terra);outline-offset:1px;border-color:var(--terra)}
+label.lbl{font-size:.82rem;font-weight:600;letter-spacing:.02em;margin-bottom:.35rem;display:block}
+
+/* Stepper */
+.step-dot{width:2.15rem;height:2.15rem;border-radius:9999px;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;border:2px solid #d8cbb2;color:#8A6A3F;background:#fff}
+.step-on{border-color:var(--forest);background:var(--forest);color:#fff}
+.step-done{border-color:var(--terra);background:var(--terra);color:#fff}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:#ece4d3}
+::-webkit-scrollbar-thumb{background:#8A6A3F;border-radius:8px}
+.dark ::-webkit-scrollbar-track{background:#20251F}
+
+/* Botanical faint bg */
+.botanical-bg{background-image:radial-gradient(rgba(201,139,91,.14) 1.2px, transparent 1.2px);background-size:22px 22px}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Supper Club | Hearth & Harvest</title>
+<meta name="description" content="Gather around the table for seasonal evenings, special menus, and conversations worth staying late for."/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{forest:'#3F5D45',terra:'#C98B5B',linen:'#F6F1E7',earth:'#2F3028',olive:'#8A6A3F'}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="bg-[#F6F1E7] dark:bg-[#20251F] text-[#2F3028] dark:text-[#F6F1E7] font-sans antialiased">
+<div id="navbar"></div>
+<main>
+<section class="relative overflow-hidden botanical-bg min-h-[calc(100svh-4rem)] md:min-h-[calc(100svh-76px)] flex flex-col justify-center py-6 md:py-8">
+<div class="absolute -top-24 -end-24 w-[420px] h-[420px] rounded-full bg-[#C98B5B]/15 blur-3xl pointer-events-none" aria-hidden="true"></div>
+<div class="absolute -bottom-32 -start-24 w-[380px] h-[380px] rounded-full bg-[#3F5D45]/10 blur-3xl pointer-events-none" aria-hidden="true"></div>
+<div class="relative max-w-4xl mx-auto text-center px-4 sm:px-6 w-full">
+<p class="hero-rise hero-rise-1 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3F5D45]/10 dark:bg-white/10 border border-[#3F5D45]/20 dark:border-white/15 text-[11px] tracking-[0.24em] uppercase font-bold text-[#3F5D45] dark:text-[#eec79f]">October · November · December (demo)</p>
+<h1 class="hero-rise hero-rise-2 font-serif text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.05] mt-3 text-balance">Supper <span class="italic font-accent font-medium text-[#3F5D45] dark:text-[#eec79f]">Club.</span></h1>
+<p class="hero-rise hero-rise-3 font-accent italic text-lg md:text-xl mt-2 opacity-80 max-w-2xl mx-auto leading-relaxed">Gather around the table for seasonal evenings, special menus, and conversations worth staying late for.</p>
+<div class="hero-rise hero-rise-4 grid grid-cols-3 gap-3 md:gap-4 mt-5 max-w-3xl mx-auto items-start">
+<div class="rounded-2xl overflow-hidden shadow-lg zoom-img h-[16vh] sm:h-[18vh] md:h-[22vh]"><img src="images/sourcing/riverside.jpg" alt="Guests gathered around the supper table" class="w-full h-full object-cover"/></div>
+<div class="rounded-2xl overflow-hidden shadow-xl zoom-img h-[16vh] sm:h-[18vh] md:h-[22vh] mt-3 md:mt-4 relative"><img src="images/events/events-new12.jpg" alt="Candlelit supper club table" class="w-full h-full object-cover"/><span class="absolute bottom-2 start-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 rounded-full bg-[#2F3028]/85 text-[#F6F1E7] backdrop-blur text-[10px] font-bold tracking-[0.16em] uppercase">Fri & Sat</span></div>
+<div class="rounded-2xl overflow-hidden shadow-lg zoom-img h-[16vh] sm:h-[18vh] md:h-[22vh]"><img src="images/testimonials/guest-2.jpg" alt="Winter hearth supper" class="w-full h-full object-cover"/></div>
+</div>
+<div class="hero-rise hero-rise-4 flex flex-wrap justify-center gap-2 mt-5 p-1.5 rounded-3xl sm:rounded-full border border-[#e8ddc6] dark:border-white/15 bg-white dark:bg-white/10 shadow-sm w-fit max-w-full mx-auto">
+<button class="event-filter active px-4 sm:px-5 py-2 rounded-full border border-transparent text-[13px] sm:text-sm font-semibold bg-[#3F5D45] text-white" data-filter="All">All</button>
+<button class="event-filter px-4 sm:px-5 py-2 rounded-full border border-transparent text-[13px] sm:text-sm font-semibold hover:bg-[#3F5D45]/10 dark:hover:bg-white/10 transition" data-filter="Seasonal Dinner">Seasonal Dinner</button>
+<button class="event-filter px-4 sm:px-5 py-2 rounded-full border border-transparent text-[13px] sm:text-sm font-semibold hover:bg-[#3F5D45]/10 dark:hover:bg-white/10 transition" data-filter="Chef Collaboration">Chef Collaboration</button>
+<button class="event-filter px-4 sm:px-5 py-2 rounded-full border border-transparent text-[13px] sm:text-sm font-semibold hover:bg-[#3F5D45]/10 dark:hover:bg-white/10 transition" data-filter="Farm Dinner">Farm Dinner</button>
+<button class="event-filter px-4 sm:px-5 py-2 rounded-full border border-transparent text-[13px] sm:text-sm font-semibold hover:bg-[#3F5D45]/10 dark:hover:bg-white/10 transition" data-filter="Special Event">Special Event</button>
+</div>
+<div class="hero-rise hero-rise-5 mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-[11px] tracking-[0.18em] uppercase text-[#8A6A3F] dark:text-[#e8b98a] font-bold"><span>5 Evenings</span><span class="text-[#C98B5B]" aria-hidden="true">·</span><span>12–36 Seats</span><span class="text-[#C98B5B]" aria-hidden="true">·</span><span>Demo Booking</span></div>
+</div></section>
+<br><br>
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 text-center scroll-mt-24">
+<p class="reveal text-[11px] tracking-[0.24em] uppercase font-bold text-[#8A6A3F] dark:text-[#e8b98a]">Upcoming Evenings</p>
+<h2 class="reveal font-serif text-3xl md:text-4xl font-bold mt-2">Choose your <span class="italic font-accent font-medium text-[#C98B5B]">night</span></h2>
+<p class="reveal mt-2 text-[15px] opacity-80 max-w-xl mx-auto">Filter above — every evening is communal, seasonal and demo-bookable.</p>
+<div id="eventGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8 text-start"></div>
+<p class="text-xs opacity-60 mt-5">Demo event data — seats and availability are illustrative.</p></section>
+<!-- S3 HOW IT WORKS -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10"><h2 class="reveal font-serif text-3xl font-bold text-center">How a supper night flows</h2>
+<div class="grid sm:grid-cols-3 gap-4 mt-6">
+<div class="reveal rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-6 text-center card-lift"><span class="mx-auto w-12 h-12 grid place-items-center rounded-full bg-[#3F5D45]/10 dark:bg-white/10 text-[#3F5D45] dark:text-[#C98B5B]"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87M12 12a4 4 0 100-8 4 4 0 000 8zM12 12v8"/></svg></span><h3 class="font-bold mt-3">6:30 · Gather</h3><p class="text-sm opacity-75 mt-1">Cider + crate snacks, meet your neighbours.</p></div>
+<div class="reveal rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-6 text-center card-lift"><span class="mx-auto w-12 h-12 grid place-items-center rounded-full bg-[#C98B5B]/15 text-[#8A6A3F] dark:text-[#e8b98a]"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 13h16a8 8 0 01-16 0zM12 5v1M10 3h4M4 17h16M6 20h12"/></svg></span><h3 class="font-bold mt-3">7:00 · Feast</h3><p class="text-sm opacity-75 mt-1">Five courses, grower stories between plates.</p></div>
+<div class="reveal rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-6 text-center card-lift"><span class="mx-auto w-12 h-12 grid place-items-center rounded-full bg-[#3F5D45]/10 dark:bg-white/10 text-[#3F5D45] dark:text-[#C98B5B]"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79zM8 21h8M9 17h6"/></svg></span><h3 class="font-bold mt-3">10:00 · Linger</h3><p class="text-sm opacity-75 mt-1">Orchard dessert, tea, conversations worth staying for.</p></div>
+</div></section>
+<!-- S4 PRIVATE HIRE -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10"><div class="reveal rounded-[1.6rem] overflow-hidden grid md:grid-cols-2 bg-[#2F3028] text-[#F6F1E7]">
+<div class="p-7 md:p-10 flex flex-col justify-center"><p class="text-[11px] tracking-[0.22em] uppercase font-bold text-[#C98B5B]">Private Evenings</p><h2 class="font-serif text-3xl font-bold mt-2">Take the long table</h2><p class="text-sm opacity-80 mt-2">12–36 guests · set seasonal menu · grower toast. Demo offering.</p>
+<ul class="mt-5 space-y-2.5 text-sm">
+<li class="flex items-center gap-3"><span class="w-7 h-7 shrink-0 grid place-items-center rounded-full bg-white/10 text-[11px] font-bold text-[#e8b98a]">✓</span><span>Whole long table, candles + linen included</span></li>
+<li class="flex items-center gap-3"><span class="w-7 h-7 shrink-0 grid place-items-center rounded-full bg-white/10 text-[11px] font-bold text-[#e8b98a]">✓</span><span>Set 5-course menu, GF / VG adapted</span></li>
+<li class="flex items-center gap-3"><span class="w-7 h-7 shrink-0 grid place-items-center rounded-full bg-white/10 text-[11px] font-bold text-[#e8b98a]">✓</span><span>Grower welcome pour + story between courses</span></li>
+<li class="flex items-center gap-3"><span class="w-7 h-7 shrink-0 grid place-items-center rounded-full bg-[#C98B5B] text-[11px] font-bold">✓</span><span>Dedicated host till late · 3-hour evening</span></li>
+</ul>
+<div class="flex flex-wrap gap-2 mt-5 text-[11px] font-bold"><span class="px-3 py-1.5 rounded-full bg-white/10">12–36 guests</span><span class="px-3 py-1.5 rounded-full bg-white/10">From $65 demo</span><span class="px-3 py-1.5 rounded-full bg-white/10">Tue–Sun</span></div>
+<div class="flex flex-wrap gap-2 mt-5"><a href="contact.html" class="px-6 py-3 rounded-full bg-[#C98B5B] hover:bg-[#b67a4d] text-sm font-bold transition hover:-translate-y-0.5">Enquire</a><a href="booking.html" class="px-6 py-3 rounded-full border border-white/30 text-sm font-semibold hover:bg-white hover:text-[#2F3028] transition">Check dates</a></div>
+<p class="text-xs opacity-60 mt-3">Demo offering — final menu + quote within two days.</p></div>
+<img loading="lazy" src="images/restaurant/restaurant-new01.jpg" alt="Communal dining table set for an event" class="w-full h-56 md:h-full object-cover"/>
+</div></section>
+<!-- S5 GALLERY -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10"><h2 class="reveal font-serif text-3xl font-bold">Past evenings (demo)</h2>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mt-5">
+<img loading="lazy" src="images/events/events-new06.jpg" alt="Guests at a past supper" class="reveal rounded-2xl h-40 w-full object-cover"/>
+<img loading="lazy" src="images\home\img4.avif" alt="Chef collaboration night" class="reveal rounded-2xl h-40 w-full object-cover"/>
+<img loading="lazy" src="images/restaurant/restaurant-new02.jpg" alt="Candlelit communal table" class="reveal rounded-2xl h-40 w-full object-cover"/>
+<img loading="lazy" src="images/events/events-new08.jpg" alt="Winter hearth supper table" class="reveal rounded-2xl h-40 w-full object-cover"/>
+</div></section>
+<!-- S6 CALENDAR NOTE -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10"><div class="reveal rounded-2xl border bg-white dark:bg-[#2B3029] p-6 md:p-8 grid md:grid-cols-3 gap-4 text-center">
+<div><p class="font-bold text-[#C98B5B]">OCTOBER</p><p class="text-sm opacity-75">Orchard Feast · Harvest Table</p></div>
+<div><p class="font-bold text-[#C98B5B]">NOVEMBER</p><p class="text-sm opacity-75">Farmers' Table · Collab Night</p></div>
+<div><p class="font-bold text-[#C98B5B]">DECEMBER</p><p class="text-sm opacity-75">Winter Hearth Supper</p></div>
+</div></section>
+<!-- S7 FAQ + CTA -->
+<section class="max-w-4xl mx-auto px-4 sm:px-6 pb-16 grid md:grid-cols-2 gap-5">
+<div class="reveal rounded-2xl bg-white dark:bg-[#2B3029] border p-6"><h2 class="font-serif text-xl font-bold">Supper FAQ</h2>
+<div class="faq-item border rounded-xl mt-3"><button class="faq-q w-full flex justify-between p-4 text-sm font-semibold text-start" aria-expanded="false">How do I join? <span class="faq-chevron">▾</span></button><div class="faq-a px-4"><p class="pb-4 text-sm opacity-75">Open an event above for details, then reserve via booking.</p></div></div>
+<div class="faq-item border rounded-xl mt-2"><button class="faq-q w-full flex justify-between p-4 text-sm font-semibold text-start" aria-expanded="false">Can I update dietary prefs? <span class="faq-chevron">▾</span></button><div class="faq-a px-4"><p class="pb-4 text-sm opacity-75">Yes — from your guest dashboard anytime.</p></div></div>
+</div>
+<div class="reveal rounded-2xl bg-[#3F5D45] text-white p-6 flex flex-col justify-center"><h2 class="font-serif text-2xl font-bold">Seats go fast in autumn</h2><p class="text-sm text-white/85 mt-1">Demo availability — reserve early for Fri & Sat.</p><a href="booking.html" class="mt-4 w-fit px-6 py-3 rounded-full bg-white text-[#3F5D45] text-sm font-bold">Reserve a Seat</a></div>
+</section>
+<!-- CTA — Save your seat -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16"><div class="reveal relative overflow-hidden rounded-[1.6rem] bg-[#2F3028] text-[#F6F1E7] p-7 md:p-12 text-center">
+<div class="absolute -top-20 start-1/4 w-72 h-72 rounded-full bg-[#C98B5B]/25 blur-3xl pointer-events-none" aria-hidden="true"></div>
+<div class="absolute -bottom-24 end-1/4 w-72 h-72 rounded-full bg-[#3F5D45]/40 blur-3xl pointer-events-none" aria-hidden="true"></div>
+<div class="relative">
+<p class="text-[11px] tracking-[0.24em] uppercase font-bold text-[#e8b98a]">Fri & Sat · 12–36 seats a night</p>
+<h2 class="font-serif text-3xl md:text-4xl font-bold mt-2">Your chair at the <span class="italic font-accent font-medium text-[#eec79f]">long table</span> awaits.</h2>
+<p class="mt-2 text-sm md:text-[15px] text-white/80 max-w-xl mx-auto">Six autumn–winter evenings · five courses · grower stories. Demo booking.</p>
+<div class="flex flex-wrap justify-center gap-3 mt-6"><a href="booking.html" class="px-7 py-3.5 rounded-full bg-[#C98B5B] hover:bg-[#b67a4d] text-white text-sm font-bold shadow-xl hover:-translate-y-0.5 transition">Reserve a Seat</a><a href="contact.html" class="px-7 py-3.5 rounded-full border border-white/40 text-sm font-semibold hover:bg-white hover:text-[#2F3028] transition">Private Hire</a></div>
+<p class="mt-4 text-xs text-white/60">Vegetarian, vegan & gluten-free every evening — note needs at booking.</p>
+</div>
+</div></section>
+</main>
+<div id="footer"></div>
+<script src="js/navbar.js"></script><script src="js/footer.js"></script><script src="js/main.js"></script>
+</body>
+</html>

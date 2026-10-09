@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Reserve a Table | Hearth & Harvest</title>
+<meta name="description" content="Reserve a seasonal tasting menu, dining room table or supper club seat. Six-step guided booking."/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{forest:'#3F5D45',terra:'#C98B5B',linen:'#F6F1E7',earth:'#2F3028',olive:'#8A6A3F'}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="bg-[#F6F1E7] dark:bg-[#20251F] text-[#2F3028] dark:text-[#F6F1E7] font-sans antialiased">
+<div id="navbar"></div>
+<main class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
+<h1 class="font-serif text-3xl md:text-4xl font-bold text-center">Reserve a Table</h1>
+<p class="text-center text-sm opacity-70 mt-2">Reservations are recommended for seasonal tasting menus.</p>
+<div class="flex justify-center gap-2 mt-6"><span class="step-dot">1</span><span class="step-dot">2</span><span class="step-dot">3</span><span class="step-dot">4</span><span class="step-dot">5</span><span class="step-dot">6</span></div>
+<div class="h-1.5 rounded-full bg-black/10 dark:bg-white/10 mt-4 overflow-hidden"><div id="stepBar" class="h-full bg-[#C98B5B] transition-all" style="width:16%"></div></div>
+<form id="bookingForm" class="mt-6 rounded-2xl bg-white dark:bg-[#2B3029] border p-6 md:p-8" onsubmit="return false">
+<section class="book-step"><h2 class="font-serif text-xl font-bold">Step 1 · Choose experience</h2>
+<div class="grid sm:grid-cols-3 gap-3 mt-4">
+<button type="button" data-exp="Dining Room" class="exp-card border rounded-2xl p-4 text-start hover:border-[#3F5D45]"><p class="font-bold">Dining Room</p><p class="text-xs opacity-70">Seasonal à la carte</p></button>
+<button type="button" data-exp="Tasting Menu" class="exp-card border rounded-2xl p-4 text-start hover:border-[#3F5D45]"><p class="font-bold">Tasting Menu</p><p class="text-xs opacity-70">5 courses · demo $65</p></button>
+<button type="button" data-exp="Supper Club" class="exp-card border rounded-2xl p-4 text-start hover:border-[#3F5D45]"><p class="font-bold">Supper Club</p><p class="text-xs opacity-70">Communal evening</p></button>
+</div></section>
+<section class="book-step hidden"><h2 class="font-serif text-xl font-bold">Step 2 · Choose date</h2><label class="lbl mt-4" for="bDate">Date</label><input id="bDate" type="date" class="field" value="2026-10-24" min="2026-10-07" max="2027-03-31"/></section>
+<section class="book-step hidden"><h2 class="font-serif text-xl font-bold">Step 3 · Choose time</h2><div class="flex flex-wrap gap-2 mt-4">
+<button type="button" data-time="6:00 PM" class="time-chip px-5 py-2.5 rounded-full border text-sm font-semibold">6:00 PM</button>
+<button type="button" data-time="7:00 PM" class="time-chip px-5 py-2.5 rounded-full border text-sm font-semibold">7:00 PM</button>
+<button type="button" data-time="7:30 PM" class="time-chip px-5 py-2.5 rounded-full border text-sm font-semibold">7:30 PM</button>
+<button type="button" data-time="8:30 PM" class="time-chip px-5 py-2.5 rounded-full border text-sm font-semibold">8:30 PM</button>
+</div></section>
+<section class="book-step hidden"><h2 class="font-serif text-xl font-bold">Step 4 · Guest details</h2>
+<div class="grid sm:grid-cols-2 gap-4 mt-4">
+<div><label class="lbl" for="bName">Full name</label><input id="bName" class="field" placeholder="Jordan Ellis"/></div>
+<div><label class="lbl" for="bEmail">Email</label><input id="bEmail" type="email" class="field" placeholder="you@example.com"/></div>
+<div><label class="lbl" for="bGuests">Guests</label><select id="bGuests" class="field"><option>2</option><option>1</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+<div><label class="lbl" for="bNotes">Notes</label><input id="bNotes" class="field" placeholder="Occasion, seating…"/></div>
+</div></section>
+<section class="book-step hidden"><h2 class="font-serif text-xl font-bold">Step 5 · Dietary preferences</h2>
+<div class="flex flex-wrap gap-2 mt-4 text-sm">
+<label class="diet-chip border rounded-full px-4 py-2"><input type="checkbox" value="Vegetarian" class="accent-[#3F5D45]"/> Vegetarian</label>
+<label class="diet-chip border rounded-full px-4 py-2"><input type="checkbox" value="Vegan" class="accent-[#3F5D45]"/> Vegan</label>
+<label class="diet-chip border rounded-full px-4 py-2"><input type="checkbox" value="Gluten-Free" class="accent-[#3F5D45]"/> Gluten-Free</label>
+<label class="diet-chip border rounded-full px-4 py-2"><input type="checkbox" value="Nut Allergy" class="accent-[#3F5D45]"/> Nut Allergy</label>
+</div><p class="text-xs opacity-60 mt-3">Please inform our team of dietary requirements when reserving.</p></section>
+<section class="book-step hidden"><h2 class="font-serif text-xl font-bold">Step 6 · Confirmation</h2><div id="bookSummary" class="mt-4"></div>
+<button id="bConfirm" type="button" class="mt-4 w-full py-3.5 rounded-full bg-[#3F5D45] text-white text-sm font-bold">Confirm Reservation</button></section>
+<div class="flex gap-3 mt-6"><button id="bBack" type="button" class="flex-1 py-3 rounded-full border text-sm font-semibold">Back</button><button id="bNext" type="button" class="flex-1 py-3 rounded-full bg-[#3F5D45] text-white text-sm font-semibold">Next</button></div>
+</form>
+<!-- S2 EXPERIENCES -->
+<section class="grid sm:grid-cols-3 gap-4 mt-8">
+<div class="reveal rounded-2xl overflow-hidden bg-white dark:bg-[#2B3029] border card-lift"><img loading="lazy" src="images/events/events-new10.jpg" alt="Dining room tables" class="h-32 w-full object-cover"/><div class="p-4"><h3 class="font-bold text-sm">Dining Room</h3><p class="text-xs opacity-70">À la carte · 90 min · Tue–Sun</p></div></div>
+<div class="reveal rounded-2xl overflow-hidden bg-white dark:bg-[#2B3029] border card-lift"><img loading="lazy" src="images/sourcing/sourcing-new02.jpg" alt="Tasting menu course" class="h-32 w-full object-cover"/><div class="p-4"><h3 class="font-bold text-sm">Tasting · 5 courses</h3><p class="text-xs opacity-70">Demo $65 · Thu–Sat</p></div></div>
+<div class="reveal rounded-2xl overflow-hidden bg-white dark:bg-[#2B3029] border card-lift"><img loading="lazy" src="images/events/events-new11.jpg" alt="Supper club long table" class="h-32 w-full object-cover"/><div class="p-4"><h3 class="font-bold text-sm">Supper Club</h3><p class="text-xs opacity-70">Communal · Fri & Sat</p></div></div>
+</section>
+<!-- S3 HOW BOOKING WORKS -->
+<section class="mt-6 rounded-2xl border bg-white dark:bg-[#2B3029] p-6 grid sm:grid-cols-4 gap-4 text-center text-sm">
+<div><p class="font-bold">1 · Experience</p><p class="opacity-70 text-xs">Pick dining, tasting, supper.</p></div>
+<div><p class="font-bold">2 · Date & time</p><p class="opacity-70 text-xs">Live demo availability.</p></div>
+<div><p class="font-bold">3 · Details</p><p class="opacity-70 text-xs">Guests + dietary notes.</p></div>
+<div><p class="font-bold">4 · Confirm</p><p class="opacity-70 text-xs">Toast + saved demo record.</p></div>
+</section>
+<!-- S4 POLICIES -->
+<section class="mt-6 grid md:grid-cols-3 gap-4 text-sm">
+<div class="reveal rounded-2xl border bg-white dark:bg-[#2B3029] p-5"><h3 class="font-bold">Parties & timing</h3><p class="opacity-75 mt-1">1–6 online · 7+ via contact. Tables held 15 min.</p></div>
+<div class="reveal rounded-2xl border bg-white dark:bg-[#2B3029] p-5"><h3 class="font-bold">Dietary</h3><p class="opacity-75 mt-1">GF/VG/DF + allergies welcomed — note at Step 5.</p></div>
+<div class="reveal rounded-2xl border bg-white dark:bg-[#2B3029] p-5"><h3 class="font-bold">Cancellations</h3><p class="opacity-75 mt-1">Demo policy: free to 24h; suppers transferable.</p></div>
+</section>
+<!-- S5 SUPPER NUDGE -->
+<section class="mt-6 rounded-[1.6rem] overflow-hidden relative"><img loading="lazy" src="images/dishes/dishes-new09.jpg" alt="Harvest supper table" class="w-full h-56 object-cover"/><div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent"></div><div class="absolute bottom-0 p-6 text-white"><h3 class="font-serif text-xl font-bold">Supper seats fill first</h3><a href="events.html" class="mt-2 inline-block px-5 py-2.5 rounded-full bg-[#C98B5B] text-sm font-bold">Check Dates</a></div></section>
+<!-- S6 FAQ -->
+<section class="mt-6 rounded-2xl border bg-white dark:bg-[#2B3029] p-6"><h2 class="font-serif text-xl font-bold">Booking questions</h2>
+<div class="faq-item border rounded-xl mt-3"><button class="faq-q w-full flex justify-between p-4 text-sm font-semibold text-start" aria-expanded="false">Do I need a card? <span class="faq-chevron">▾</span></button><div class="faq-a px-4"><p class="pb-4 text-sm opacity-75">No — demo flow only. Production would confirm by email.</p></div></div>
+<div class="faq-item border rounded-xl mt-2"><button class="faq-q w-full flex justify-between p-4 text-sm font-semibold text-start" aria-expanded="false">Large party? <span class="faq-chevron">▾</span></button><div class="faq-a px-4"><p class="pb-4 text-sm opacity-75">Use the contact page for 7+ or full-table buyouts.</p></div></div>
+</section>
+<!-- S7 HELP -->
+<section class="mt-6 mb-2 rounded-2xl bg-[#2F3028] text-[#F6F1E7] p-6 flex flex-col sm:flex-row sm:items-center gap-4 justify-between"><div><h3 class="font-serif text-xl font-bold">Need a hand?</h3><p class="text-sm opacity-80">(555) 014-7890 · hello@hearthharvest.example</p></div><a href="contact.html" class="w-fit px-6 py-3 rounded-full bg-[#C98B5B] text-sm font-bold">Contact Us</a></section>
+</main>
+<div id="footer"></div>
+<script src="js/navbar.js"></script><script src="js/footer.js"></script><script src="js/main.js"></script>
+</body>
+</html>

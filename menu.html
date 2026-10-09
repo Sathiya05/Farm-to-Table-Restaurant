@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Seasonal Menu | Hearth & Harvest</title>
+<meta name="description" content="Our menu changes with the land, the weather, and what our local producers bring us. Explore Spring, Summer, Autumn and Winter demo menus."/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{forest:'#3F5D45',terra:'#C98B5B',linen:'#F6F1E7',earth:'#2F3028',olive:'#8A6A3F'}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="bg-[#F6F1E7] dark:bg-[#20251F] text-[#2F3028] dark:text-[#F6F1E7] font-sans antialiased">
+<div id="navbar"></div>
+<main>
+<section class="relative overflow-hidden botanical-bg min-h-[calc(100svh-4rem)] md:min-h-[calc(100svh-76px)] flex items-center justify-center">
+<div class="absolute -top-24 -end-24 w-[420px] h-[420px] rounded-full bg-[#C98B5B]/15 blur-3xl pointer-events-none" aria-hidden="true"></div>
+<div class="absolute -bottom-32 -start-24 w-[380px] h-[380px] rounded-full bg-[#3F5D45]/10 blur-3xl pointer-events-none" aria-hidden="true"></div>
+<div class="relative max-w-3xl mx-auto text-center px-4 sm:px-6 py-10 md:py-12 w-full">
+<p class="hero-rise hero-rise-1 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3F5D45]/10 dark:bg-white/10 border border-[#3F5D45]/20 dark:border-white/15 text-[11px] tracking-[0.24em] uppercase font-bold text-[#3F5D45] dark:text-[#eec79f]">Current Season · Autumn · Seasonal rotation</p>
+<h1 class="hero-rise hero-rise-2 font-serif text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] mt-4 text-balance">Seasonal <span class="italic font-accent font-medium text-[#3F5D45] dark:text-[#eec79f]">Menu.</span></h1>
+<p class="hero-rise hero-rise-3 font-accent italic text-lg md:text-xl mt-3 opacity-80 max-w-xl mx-auto leading-relaxed">Our menu changes with the land, the weather, and what our local producers bring us.</p>
+<div id="tastingTopic" class="mt-5" style="opacity:1 !important;display:block;text-align:center;">
+<h2 style="opacity:1 !important;display:block;text-align:center;font-family:Georgia,'Playfair Display',serif;font-size:28px;line-height:1.2;font-weight:800;color:#2F3028;margin:0;">Tasting Now — <span style="font-style:italic;color:#C98B5B;">Autumn Stars</span></h2>
+<p style="opacity:1 !important;display:block;text-align:center;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;font-weight:700;color:#8A6A3F;margin:6px 0 0;">Three plates guests love this month</p>
+<div class="mt-4 flex items-start justify-center gap-4 md:gap-6">
+<figure class="text-center">
+<img src="images/dishes/dishes-new07.jpg" alt="Roasted garden dish" class="mx-auto w-14 h-14 md:w-16 md:h-16 rounded-full object-cover ring-2 ring-white dark:ring-[#3c443c] shadow-lg hover:scale-105 transition"/>
+<figcaption class="mt-2 text-xs font-bold text-[#2F3028] dark:text-[#F6F1E7]">Garden Roots</figcaption>
+</figure>
+<figure class="text-center">
+<img src="images/dishes/dishes-new08.jpg" alt="Wood-fired autumn squash" class="mx-auto w-16 h-16 md:w-20 md:h-20 rounded-full object-cover ring-2 ring-[#C98B5B] shadow-xl hover:scale-105 transition"/>
+<figcaption class="mt-2 text-xs font-bold text-[#C98B5B]">Fire Squash ★</figcaption>
+</figure>
+<figure class="text-center">
+<img src="images/restaurant/hearth.jpg" alt="Wild mushroom risotto" class="mx-auto w-14 h-14 md:w-16 md:h-16 rounded-full object-cover ring-2 ring-white dark:ring-[#3c443c] shadow-lg hover:scale-105 transition"/>
+<figcaption class="mt-2 text-xs font-bold text-[#2F3028] dark:text-[#F6F1E7]">Mushroom Risotto</figcaption>
+</figure>
+</div>
+</div>
+<div class="hero-rise hero-rise-3 flex items-center justify-center gap-3 mt-5" aria-hidden="true"><span class="h-px w-14 bg-gradient-to-r from-transparent to-[#C98B5B]"></span><svg viewBox="0 0 24 24" class="w-5 h-5 text-[#C98B5B]" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c-5 0-8-3.5-8-8 0-5 4-9 10-10-.5 6-1.5 10-6 12" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="h-px w-14 bg-gradient-to-l from-transparent to-[#C98B5B]"></span></div>
+<div class="hero-rise hero-rise-4 flex flex-wrap justify-center gap-2 mt-6 p-1.5 rounded-full border border-[#e8ddc6] dark:border-white/15 bg-white dark:bg-white/10 shadow-sm w-fit mx-auto" role="tablist" aria-label="Season selector">
+<button class="season-tab px-5 md:px-6 py-2.5 rounded-full border border-transparent text-sm font-semibold transition" data-season="spring" role="tab" aria-selected="false">Spring</button>
+<button class="season-tab px-5 md:px-6 py-2.5 rounded-full border border-transparent text-sm font-semibold transition" data-season="summer" role="tab" aria-selected="false">Summer</button>
+<button class="season-tab px-5 md:px-6 py-2.5 rounded-full border border-transparent text-sm font-semibold transition" data-season="autumn" role="tab" aria-selected="true">Autumn</button>
+<button class="season-tab px-5 md:px-6 py-2.5 rounded-full border border-transparent text-sm font-semibold transition" data-season="winter" role="tab" aria-selected="false">Winter</button>
+</div>
+<p id="seasonNote" class="hero-rise hero-rise-5 text-xs mt-3 opacity-70 min-h-[1rem]"></p>
+<div class="hero-rise hero-rise-5 mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-[11px] tracking-[0.18em] uppercase text-[#8A6A3F] dark:text-[#e8b98a] font-bold"><span>5 Courses · $65 demo</span><span class="text-[#C98B5B]" aria-hidden="true">·</span><span>GF / VG Friendly</span><span class="text-[#C98B5B]" aria-hidden="true">·</span><span>14 Growers</span></div>
+</div>
+</section>
+<!-- MENUS GRIDS — static course grids -->
+<section class="bg-white/60 dark:bg-[#262b26] border-y border-[#e8ddc6] dark:border-[#333a33]"><div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16 text-center">
+<p class="reveal text-[11px] tracking-[0.24em] uppercase font-bold text-[#8A6A3F] dark:text-[#e8b98a]">Menus Grids</p>
+<h2 class="reveal font-serif text-3xl md:text-4xl font-bold mt-2">Browse by <span class="italic font-accent font-medium text-[#C98B5B]">course</span></h2>
+<p class="reveal mt-2 text-[15px] opacity-80 max-w-xl mx-auto">Static demo grids — always visible, no season switch needed.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mt-8 text-start">
+<article class="reveal rounded-2xl overflow-hidden bg-[#F6F1E7] dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] card-lift"><div class="zoom-img aspect-[16/10] overflow-hidden"><img loading="lazy" src="images/restaurant/interior.jpg" alt="Seasonal starter plate" class="w-full h-full object-cover"/></div><div class="p-5"><p class="text-[11px] font-bold tracking-[0.18em] uppercase text-[#C98B5B]">Starters · $12–16</p><h3 class="font-serif text-xl font-bold mt-1">3-Course Meal Dining</h3><p class="text-sm opacity-75 mt-1">Whipped goat cheese, pickles, herb oil. Demo dish.</p><div class="flex flex-wrap gap-1.5 mt-3"><span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-green-100 text-green-800">Vegetarian</span><span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">Gluten-Free</span></div></div></article>
+<article class="reveal rounded-2xl overflow-hidden bg-[#F6F1E7] dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] card-lift"><div class="zoom-img aspect-[16/10] overflow-hidden"><img loading="lazy" src="images/events/events-new04.jpg" alt="Roasted garden vegetables" class="w-full h-full object-cover"/></div><div class="p-5"><p class="text-[11px] font-bold tracking-[0.18em] uppercase text-[#C98B5B]">Garden · $14–22</p><h3 class="font-serif text-xl font-bold mt-1">Ocassional Dining Area</h3><p class="text-sm opacity-75 mt-1">Heirloom carrots, Delicata, toasted seeds. Demo dish.</p><div class="flex flex-wrap gap-1.5 mt-3"><span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Vegan option</span><span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-sky-100 text-sky-800">Dairy-Free</span></div></div></article>
+<article class="reveal rounded-2xl overflow-hidden bg-[#F6F1E7] dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] card-lift"><div class="zoom-img aspect-[16/10] overflow-hidden"><img loading="lazy" src="images/events/events-new05.jpg" alt="Wild mushroom risotto" class="w-full h-full object-cover"/></div><div class="p-5"><p class="text-[11px] font-bold tracking-[0.18em] uppercase text-[#C98B5B]">Hearth · $24–29</p><h3 class="font-serif text-xl font-bold mt-1">Family Spacious Seating</h3><p class="text-sm opacity-75 mt-1">Aged parmesan, thyme, chanterelles. Demo dish.</p><div class="flex flex-wrap gap-1.5 mt-3"><span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-green-100 text-green-800">Vegetarian</span><span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">Gluten-Free</span></div></div></article>
+<article class="reveal rounded-2xl overflow-hidden bg-[#F6F1E7] dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] card-lift"><div class="zoom-img aspect-[16/10] overflow-hidden"><img loading="lazy" src="images\home\img8.avif" alt="Herb-roasted farm dish" class="w-full h-full object-cover"/></div><div class="p-5"><p class="text-[11px] font-bold tracking-[0.18em] uppercase text-[#C98B5B]">Farm · $26–32</p><h3 class="font-serif text-xl font-bold mt-1">Herb-Roasted Chicken</h3><p class="text-sm opacity-75 mt-1">Garden vegetables, pan jus. Demo dish.</p><div class="flex flex-wrap gap-1.5 mt-3"><span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">Gluten-Free</span><span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-sky-100 text-sky-800">Dairy-Free</span></div></div></article>
+<article class="reveal rounded-2xl overflow-hidden bg-[#F6F1E7] dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] card-lift"><div class="zoom-img aspect-[16/10] overflow-hidden"><img loading="lazy" src="images\home\img9.avif" alt="Harvest grain bowl" class="w-full h-full object-cover"/></div><div class="p-5"><p class="text-[11px] font-bold tracking-[0.18em] uppercase text-[#C98B5B]">Bowls · $18–22</p><h3 class="font-serif text-xl font-bold mt-1">Harvest Grain Bowl</h3><p class="text-sm opacity-75 mt-1">Ancient grains, roasted roots, herb oil. Demo dish.</p><div class="flex flex-wrap gap-1.5 mt-3"><span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Vegan</span><span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">Gluten-Free</span></div></div></article>
+<article class="reveal rounded-2xl overflow-hidden bg-[#F6F1E7] dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] card-lift"><div class="zoom-img aspect-[16/10] overflow-hidden"><img loading="lazy" src="images/sourcing/dairy.jpg" alt="Orchard dessert" class="w-full h-full object-cover"/></div><div class="p-5"><p class="text-[11px] font-bold tracking-[0.18em] uppercase text-[#C98B5B]">Dessert · $12–14</p><h3 class="font-serif text-xl font-bold mt-1">Orchard Tart</h3><p class="text-sm opacity-75 mt-1">Stone fruit, vanilla cream. Demo dish.</p><div class="flex flex-wrap gap-1.5 mt-3"><span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-green-100 text-green-800">Vegetarian</span><span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Contains Nuts</span></div></div></article>
+</div>
+<div class="mt-8"><a href="booking.html" class="inline-block px-7 py-3 rounded-full bg-[#3F5D45] hover:bg-[#334c38] text-white text-sm font-semibold transition hover:-translate-y-0.5">Reserve to Taste Them</a></div>
+</div></section>
+<section id="menu-grid" class="max-w-6xl mx-auto px-4 sm:px-6 pb-16 pt-10 scroll-mt-24 text-center">
+<p class="reveal text-[11px] tracking-[0.24em] uppercase font-bold text-[#8A6A3F] dark:text-[#e8b98a]">Explore The Menu</p>
+<h2 class="reveal font-serif text-3xl md:text-4xl font-bold mt-2">Dishes of the <span class="italic font-accent font-medium text-[#C98B5B]">Season</span></h2>
+<p class="reveal mt-2 text-[15px] opacity-80 max-w-xl mx-auto">Pick a season above — plates, produce and demo prices change with the land.</p>
+<div id="seasonMenuGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mt-8 text-start"></div>
+<p class="text-xs opacity-60 mt-4">Prices shown are sample/demo pricing. Please inform our team of dietary requirements when reserving.</p>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 mt-8 text-start">
+<div class="lg:col-span-2 rounded-2xl bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-6 md:p-8 reveal">
+<h3 class="font-serif text-2xl font-bold">Menu Categories</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5 text-sm">
+<div class="rounded-xl bg-[#F6F1E7] dark:bg-[#353b34] p-4"><h4 class="font-serif font-bold">Starters & Small Plates</h4><p class="opacity-75 mt-1">Crate vegetables, hearth breads, cured & pickled things.</p></div>
+<div class="rounded-xl bg-[#F6F1E7] dark:bg-[#353b34] p-4"><h4 class="font-serif font-bold">Garden</h4><p class="opacity-75 mt-1">Leaves, roots and brassicas from partner beds.</p></div>
+<div class="rounded-xl bg-[#F6F1E7] dark:bg-[#353b34] p-4"><h4 class="font-serif font-bold">From the Farm & Field</h4><p class="opacity-75 mt-1">Slow meats, grains, mushrooms, orchard fruit.</p></div>
+<div class="rounded-xl bg-[#F6F1E7] dark:bg-[#353b34] p-4"><h4 class="font-serif font-bold">Desserts & Beverages</h4><p class="opacity-75 mt-1">Stone fruit, honey, herbal infusions, low-intervention pours.</p></div>
+</div>
+<div class="flex flex-wrap gap-2 mt-5 text-[11px] font-semibold"><span class="px-2.5 py-1 rounded-full bg-green-100 text-green-800">Vegetarian</span><span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800">Vegan</span><span class="px-2.5 py-1 rounded-full bg-amber-100 text-amber-800">Gluten-Free</span><span class="px-2.5 py-1 rounded-full bg-sky-100 text-sky-800">Dairy-Free</span><span class="px-2.5 py-1 rounded-full bg-orange-100 text-orange-800">Contains Nuts</span></div>
+</div>
+<aside class="reveal rounded-2xl overflow-hidden border border-[#ece2cf] dark:border-[#3c443c] flex flex-col"><img loading="lazy" src="images/sourcing/farm-sunset.jpg" alt="Chef's seasonal table spread" class="w-full h-48 sm:h-56 object-cover"/><div class="p-6 bg-[#3F5D45] text-white flex-1"><h3 class="font-serif text-xl font-bold">Taste the season</h3><p class="text-sm text-white/85 mt-1">Five courses · $65 demo · Wine pairing available.</p><a href="booking.html" class="mt-4 inline-block px-6 py-2.5 rounded-full bg-white text-[#3F5D45] text-sm font-bold">Reserve Tasting</a></div></aside>
+</div>
+</section>
+
+<!-- S4 TASTING BANNER -->
+<section class="max-w-6xl mx-auto px-4 sm:px-6 pb-4 text-center">
+<p class="reveal text-[11px] tracking-[0.24em] uppercase font-bold text-[#8A6A3F] dark:text-[#e8b98a]">Chef's Tasting</p>
+<h2 class="reveal font-serif text-3xl md:text-4xl font-bold mt-2">An Evening in <span class="italic font-accent font-medium text-[#C98B5B]">Five Courses</span></h2>
+<p class="reveal mt-2 text-[15px] opacity-80 max-w-xl mx-auto">One story from soup to orchard — Thu–Sat, 90 minutes at the table.</p>
+<div class="reveal rounded-[1.6rem] overflow-hidden grid md:grid-cols-2 bg-[#3F5D45] text-white mt-8 text-start">
+<img loading="lazy" src="images/sourcing/green-valley.jpg" alt="Chef's tasting course" class="w-full h-56 md:h-full object-cover"/>
+<div class="p-7 md:p-9 flex flex-col"><p class="text-[11px] tracking-[0.22em] uppercase font-bold text-[#e8b98a]">Chef's Tasting · Demo $65</p><h2 class="font-serif text-3xl font-bold mt-2">Five courses, one story</h2><p class="text-sm text-white/85 mt-2">Soup → garden → hearth → farm → orchard. Wine pairing +$30 demo.</p>
+<ol class="mt-5 space-y-2.5 text-sm">
+<li class="flex items-center gap-3"><span class="w-7 h-7 shrink-0 grid place-items-center rounded-full bg-white/15 text-[11px] font-bold">01</span><span><strong>Orchard Soup</strong> <span class="text-white/70">· squash, brown butter</span></span></li>
+<li class="flex items-center gap-3"><span class="w-7 h-7 shrink-0 grid place-items-center rounded-full bg-white/15 text-[11px] font-bold">02</span><span><strong>Garden Roots</strong> <span class="text-white/70">· goat cheese, herbs</span></span></li>
+<li class="flex items-center gap-3"><span class="w-7 h-7 shrink-0 grid place-items-center rounded-full bg-white/15 text-[11px] font-bold">03</span><span><strong>Hearth Mushroom</strong> <span class="text-white/70">· risotto, parmesan</span></span></li>
+<li class="flex items-center gap-3"><span class="w-7 h-7 shrink-0 grid place-items-center rounded-full bg-white/15 text-[11px] font-bold">04</span><span><strong>Farm Bird</strong> <span class="text-white/70">· herb chicken, jus</span></span></li>
+<li class="flex items-center gap-3"><span class="w-7 h-7 shrink-0 grid place-items-center rounded-full bg-[#C98B5B] text-[11px] font-bold">05</span><span><strong>Orchard Tart</strong> <span class="text-white/70">· vanilla cream</span></span></li>
+</ol>
+<div class="flex flex-wrap gap-2 mt-5 text-[11px] font-bold"><span class="px-3 py-1.5 rounded-full bg-white/15">90 min</span><span class="px-3 py-1.5 rounded-full bg-white/15">Thu–Sat</span><span class="px-3 py-1.5 rounded-full bg-white/15">GF / VG on request</span><span class="px-3 py-1.5 rounded-full bg-[#C98B5B]">4.9 ★ demo</span></div>
+<div class="mt-5 rounded-xl bg-white/10 border border-white/15 p-4 text-sm"><p class="font-semibold">Tasting $65 · Pairing +$30 <span class="font-normal text-white/70">(demo prices)</span></p><p class="text-xs text-white/70 mt-1">Tell us dietary needs at booking — every course adapts.</p></div>
+<div class="flex flex-wrap gap-2 mt-5"><a href="booking.html" class="px-6 py-3 rounded-full bg-white text-[#3F5D45] text-sm font-bold hover:-translate-y-0.5 transition">Reserve Tasting</a><a href="#menu-grid" class="px-6 py-3 rounded-full border border-white/40 text-sm font-semibold hover:bg-white hover:text-[#3F5D45] transition">See dishes</a></div></div>
+</div></section>
+<!-- S5 SEASON CALENDAR -->
+<section class="max-w-6xl mx-auto px-4 sm:px-6 py-10"><h2 class="reveal font-serif text-3xl font-bold text-center">What peaks when (demo)</h2>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+<div class="reveal rounded-2xl bg-white dark:bg-[#2B3029] border p-5"><p class="font-bold text-[#3F5D45] dark:text-[#C98B5B]">Spring</p><p class="text-sm opacity-75 mt-1">Greens, peas, asparagus, strawberries.</p></div>
+<div class="reveal rounded-2xl bg-white dark:bg-[#2B3029] border p-5"><p class="font-bold text-[#3F5D45] dark:text-[#C98B5B]">Summer</p><p class="text-sm opacity-75 mt-1">Tomatoes, corn, peaches, berries.</p></div>
+<div class="reveal rounded-2xl bg-white dark:bg-[#2B3029] border p-5"><p class="font-bold text-[#3F5D45] dark:text-[#C98B5B]">Autumn</p><p class="text-sm opacity-75 mt-1">Squash, mushrooms, roots, apples.</p></div>
+<div class="reveal rounded-2xl bg-white dark:bg-[#2B3029] border p-5"><p class="font-bold text-[#3F5D45] dark:text-[#C98B5B]">Winter</p><p class="text-sm opacity-75 mt-1">Brassicas, citrus, potatoes, greens.</p></div>
+</div></section>
+<!-- S6 SOURCING NOTE -->
+<section class="bg-white/60 dark:bg-[#262b26] border-y border-[#e8ddc6] dark:border-[#333a33]"><div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 grid md:grid-cols-2 gap-6 items-center">
+<img loading="lazy" src="images/sourcing/meadow.jpg" alt="Partner farm field" class="reveal rounded-2xl w-full h-60 object-cover"/>
+<div class="reveal"><h2 class="font-serif text-2xl md:text-3xl font-bold">Grown within 60 miles</h2><p class="text-sm opacity-75 mt-2">Fourteen fictional demo partners supply the bulk of each plate. See who grows what.</p><a href="sourcing.html" class="mt-4 inline-block px-6 py-3 rounded-full bg-[#C98B5B] text-white text-sm font-semibold">Meet Our Farmers</a></div>
+</div></section>
+<!-- S7 FAQ -->
+<section class="max-w-3xl mx-auto px-4 sm:px-6 py-12"><h2 class="reveal font-serif text-3xl font-bold text-center">Menu questions</h2>
+<div class="mt-5 space-y-3">
+<div class="faq-item reveal rounded-2xl bg-white dark:bg-[#2B3029] border"><button class="faq-q w-full flex justify-between p-5 text-sm font-semibold text-start" aria-expanded="false">Is everything demo pricing? <span class="faq-chevron">▾</span></button><div class="faq-a px-5"><p class="pb-5 text-sm opacity-75">Yes — all dishes and prices here are sample/demo content.</p></div></div>
+<div class="faq-item reveal rounded-2xl bg-white dark:bg-[#2B3029] border"><button class="faq-q w-full flex justify-between p-5 text-sm font-semibold text-start" aria-expanded="false">Allergies? <span class="faq-chevron">▾</span></button><div class="faq-a px-5"><p class="pb-5 text-sm opacity-75">Note them at reservation; the kitchen adapts most dishes to GF/DF/VG.</p></div></div>
+<div class="faq-item reveal rounded-2xl bg-white dark:bg-[#2B3029] border"><button class="faq-q w-full flex justify-between p-5 text-sm font-semibold text-start" aria-expanded="false">Beverages? <span class="faq-chevron">▾</span></button><div class="faq-a px-5"><p class="pb-5 text-sm opacity-75">Herbal infusions, local cider, low-intervention wines (demo list).</p></div></div>
+</div></section>
+<!-- CTA — Reserve your evening -->
+<section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16"><div class="reveal relative overflow-hidden rounded-[1.6rem] bg-[#2F3028] text-[#F6F1E7] p-7 md:p-12 text-center">
+<div class="absolute -top-20 start-1/4 w-72 h-72 rounded-full bg-[#C98B5B]/25 blur-3xl pointer-events-none" aria-hidden="true"></div>
+<div class="absolute -bottom-24 end-1/4 w-72 h-72 rounded-full bg-[#3F5D45]/40 blur-3xl pointer-events-none" aria-hidden="true"></div>
+<div class="relative">
+<p class="text-[11px] tracking-[0.24em] uppercase font-bold text-[#e8b98a]">Hungry? · Tue–Sun 5–10pm</p>
+<h2 class="font-serif text-3xl md:text-4xl font-bold mt-2">Come taste the <span class="italic font-accent font-medium text-[#eec79f]">season.</span></h2>
+<p class="mt-2 text-sm md:text-[15px] text-white/80 max-w-xl mx-auto">Tasting $65 demo · Supper Club Fri & Sat · 14 Orchard Lane, Willow Creek Valley.</p>
+<div class="flex flex-wrap justify-center gap-3 mt-6"><a href="booking.html" class="px-7 py-3.5 rounded-full bg-[#C98B5B] hover:bg-[#b67a4d] text-white text-sm font-bold shadow-xl hover:-translate-y-0.5 transition">Reserve a Table</a><a href="contact.html" class="px-7 py-3.5 rounded-full border border-white/40 text-sm font-semibold hover:bg-white hover:text-[#2F3028] transition">Contact & Directions</a></div>
+<p class="mt-4 text-xs text-white/60">Vegetarian, vegan & gluten-free every night — note needs at booking.</p>
+</div>
+</div></section>
+</main>
+<div id="footer"></div>
+<script src="js/navbar.js"></script><script src="js/footer.js"></script><script src="js/main.js"></script>
+</body>
+</html>

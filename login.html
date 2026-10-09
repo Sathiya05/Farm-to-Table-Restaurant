@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Login | Hearth & Harvest</title>
+<meta name="description" content="Guest login portal for Hearth & Harvest. Demo authentication only."/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{forest:'#3F5D45',terra:'#C98B5B',linen:'#F6F1E7',earth:'#2F3028',olive:'#8A6A3F'}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="bg-[#F6F1E7] dark:bg-[#20251F] text-[#2F3028] dark:text-[#F6F1E7] font-sans antialiased">
+<div class="fixed top-4 end-4 z-50 flex items-center gap-2">
+<button id="loginTheme" aria-label="Toggle dark mode" title="Toggle theme" class="w-10 h-10 grid place-items-center rounded-full bg-white dark:bg-[#2B3029] border border-[#ddcfb4] dark:border-[#4a534a] shadow text-[#3F5D45] dark:text-[#F6F1E7] hover:bg-[#3F5D45] hover:text-white transition"></button>
+<button id="loginRtl" aria-label="Toggle right-to-left layout" title="Toggle RTL / LTR" class="w-10 h-10 grid place-items-center rounded-full bg-white dark:bg-[#2B3029] border border-[#ddcfb4] dark:border-[#4a534a] shadow text-[#3F5D45] dark:text-[#F6F1E7] hover:bg-[#C98B5B] hover:text-white hover:border-[#C98B5B] transition"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 12l4-4M3 12l4 4M21 12l-4-4M21 12l-4 4"/></svg></button>
+</div>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-16 grid lg:grid-cols-2 gap-8 items-stretch">
+<div class="hidden lg:block reveal relative rounded-[1.8rem] overflow-hidden min-h-[280px]"><img src="images/dishes/dishes-new10.jpg" alt="Warm restaurant interior with wooden tables" class="absolute inset-0 w-full h-full object-cover"/><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-black/10"></div><div class="relative p-8 flex flex-col justify-end h-full min-h-[420px] text-white"><h1 class="font-serif text-3xl md:text-4xl font-bold">Welcome Back<br/>to the Table</h1><p class="text-white/85 text-sm mt-2">Reservations, supper clubs and preferences — kept in one guest place.</p></div></div>
+<div class="reveal mt-10 lg:mt-0 rounded-[1.8rem] bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] p-7 md:p-9">
+<div class="flex justify-center">
+<a href="index.html" class="flex items-center gap-2.5" aria-label="Hearth and Harvest home">
+<span class="w-11 h-11 shrink-0 rounded-full bg-[#3F5D45] dark:bg-[#6F8B72] text-white grid place-items-center" aria-hidden="true"><svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c-5 0-8-3.5-8-8 0-5 4-9 10-10-.5 6-1.5 10-6 12 2.5 1 3 .5 4-1 1 1.5 1.5 2 4 1-4.5 3.5-1 6 6-1.2 0-2.5 0-4 0z" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 21v-8" stroke-linecap="round"/></svg></span>
+<span class="leading-none text-start"><span class="block font-serif text-lg font-bold whitespace-nowrap">Hearth <span class="italic font-accent text-[#C98B5B]">&</span> Harvest</span><span class="block text-[10.5px] tracking-[0.18em] uppercase text-[#8A6A3F] dark:text-[#C9AE8A] mt-1 whitespace-nowrap">Farm-to-Table · Supper Club</span></span>
+</a>
+</div>
+<h2 class="font-serif text-2xl font-bold text-center mt-6">Guest Sign In</h2>
+<p class="text-sm opacity-70 mt-1 text-center">Demo login — connect a backend authentication service for production.</p>
+
+<form id="loginForm" class="mt-5 space-y-4">
+<div><label class="lbl" for="loginEmail">Email</label><input class="field" id="loginEmail" name="email" type="email" autocomplete="email" required value="guest@hearthharvest-demo.com"/></div>
+<div><label class="lbl" for="loginPass">Password</label><input class="field" id="loginPass" name="password" type="password" autocomplete="current-password" required value="demo123"/></div>
+<div class="flex items-center justify-between text-sm"><label class="inline-flex items-center gap-2"><input type="checkbox" checked class="accent-[#3F5D45] w-4 h-4"/> Remember me</label><a href="#" class="font-semibold text-[#8A6A3F]">Forgot password?</a></div>
+<button class="w-full py-3.5 rounded-full bg-[#3F5D45] text-white font-semibold text-sm">Sign In</button>
+</form>
+<div class="mt-5 flex items-center gap-3 text-[11px] uppercase tracking-widest opacity-60"><span class="flex-1 h-px bg-current opacity-40"></span>or continue with<span class="flex-1 h-px bg-current opacity-40"></span></div>
+<div class="mt-4 grid grid-cols-2 gap-3">
+<button type="button" class="flex items-center justify-center gap-2 py-3 rounded-full border border-[#ddcfb4] dark:border-[#4a534a] font-semibold text-sm hover:border-[#3F5D45] dark:hover:border-[#C98B5B] hover:bg-black/[0.03] dark:hover:bg-white/5 transition" onclick="toast('Google sign-in is a frontend demo.')"><svg class="w-[18px] h-[18px]" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>Google</button>
+<button type="button" class="flex items-center justify-center gap-2 py-3 rounded-full border border-[#ddcfb4] dark:border-[#4a534a] font-semibold text-sm hover:border-[#3F5D45] dark:hover:border-[#C98B5B] hover:bg-black/[0.03] dark:hover:bg-white/5 transition" onclick="toast('Apple sign-in is a frontend demo.')"><svg class="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45z"/></svg>Apple</button>
+</div>
+<p class="text-sm mt-4 text-center opacity-80">New guest? <a href="booking.html" class="font-bold text-[#3F5D45] dark:text-[#C98B5B]">Create account / Reserve</a></p>
+</div>
+</main>
+<script src="js/navbar.js"></script><script src="js/footer.js"></script><script src="js/main.js"></script>
+<script>
+(function(){
+  var root=document.documentElement;
+  var store={get:function(k){try{return window.localStorage.getItem(k);}catch(e){return null;}},set:function(k,v){try{window.localStorage.setItem(k,v);}catch(e){}}};
+  if(store.get('site-theme')==='dark') root.classList.add('dark');
+  if(store.get('site-theme')==='light') root.classList.remove('dark');
+  if(store.get('site-direction')==='rtl') root.dir='rtl'; else root.dir='ltr';
+  var t=document.getElementById('loginTheme');
+  function icon(){ return root.classList.contains('dark')
+    ? '<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.36 6.36l-.7-.7M6.34 6.34l-.7-.7m12.02 12.02l-.7-.7M6.34 17.66l-.7-.7M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>'
+    : '<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>'; }
+  if(t){ t.innerHTML=icon(); t.addEventListener('click',function(){ var d=root.classList.toggle('dark'); store.set('site-theme',d?'dark':'light'); t.innerHTML=icon(); }); }
+  var r=document.getElementById('loginRtl');
+  if(r) r.addEventListener('click',function(){ var n=root.dir==='rtl'?'ltr':'rtl'; root.dir=n; store.set('site-direction',n==='rtl'?'rtl':'ltr'); });
+})();
+</script>
+</body>
+</html>
