@@ -2,11 +2,11 @@
 (function(){
   const html = `
   <footer class="bg-[#F6F1E7] dark:bg-[#151815] text-[#2F3028] dark:text-[#F6F1E7] border-t border-[#e5d9c3] dark:border-[#333a33] mt-0">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.15fr]">
       <div>
         <a href="index.html" class="flex items-center gap-2.5 shrink-0" aria-label="Hearth and Harvest home">
-          <span class="w-10 h-10 rounded-full bg-[#3F5D45] dark:bg-[#6F8B72] text-white grid place-items-center font-serif-d text-lg" aria-hidden="true">
-            <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c-5 0-8-3.5-8-8 0-5 4-9 10-10-.5 6-1.5 10-6 12 2.5 1 3 .5 4-1 1 1.5 1.5 2 4 1-4.5 3.5-1 6 6-1.2 0-2.5 0-4 0z" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 21v-8" stroke-linecap="round"/></svg>
+          <span class="w-10 h-10 shrink-0 rounded-full bg-[#3F5D45] dark:bg-[#6F8B72] text-white grid place-items-center font-serif-d text-lg" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.1c1 3.4 3.1 5 4.7 7.4 1.5 2.4 1.6 5 .2 7.1-1.2 1.8-3 2.9-4.9 2.9-3.1 0-5.8-2.1-6.5-5-.5-2.4.4-4.6 2.2-6.6 1.6-1.8 3.6-3.2 4.3-5.8Z"/><path d="M12 18.3c0-2.4 0-4.2-.6-6"/></svg>
           </span>
           <span class="leading-none">
             <span class="block font-serif-d text-lg md:text-xl font-bold text-[#2F3028] dark:text-[#F6F1E7]">Hearth <span class="text-[#C98B5B] font-accent italic">&</span> Harvest</span>

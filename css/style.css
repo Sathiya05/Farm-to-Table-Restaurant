@@ -59,7 +59,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--linen);color:var(
 
 /* Seasonal tab active */
 .season-tab.active{background:var(--forest);color:#fff;border-color:var(--forest)}
-.dark .season-tab.active{background:var(--terra);border-color:var(--terra)}
+.dark .season-tab.active{background:var(--terra);border-color:var(--terra);color:var(--deep)}
 
 /* Event modal */
 #event-modal-backdrop{transition:opacity .3s ease}
@@ -77,15 +77,64 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--linen);color:var(
 .group\/nav:hover .nav-drop,.group\/nav:focus-within .nav-drop{opacity:1;visibility:visible;transform:none}
 [dir="rtl"] .flip-rtl{transform:scaleX(-1)}
 
-/* Active nav item (desktop links, dropdown parents, mobile menu) */
-#siteHeader .nav-active{color:#3F5D45;font-weight:600}
-.dark #siteHeader .nav-active{color:#C98B5B}
-#siteHeader .nav-active.rounded-full{border-color:#3F5D45}
-.dark #siteHeader .nav-active.rounded-full{border-color:#C98B5B}
-#mobileMenu .nav-active{background:rgba(63,93,69,.12);border-radius:.7rem;padding-inline:.6rem}
-#siteHeader .nav-drop .nav-active{background:rgba(63,93,69,.1)}
-.dark #mobileMenu .nav-active{background:rgba(201,139,91,.18)}
-.dark #siteHeader .nav-drop .nav-active{background:rgba(201,139,91,.16)}
+/* Active nav item (desktop links, dropdown parents, mobile menu) — underline, no fill */
+#siteHeader .nav-active{
+  color:var(--forest);
+  background:transparent;
+  font-weight:700;
+  border-radius:0;
+  box-shadow:none;
+  text-decoration-line:underline;
+  text-decoration-color:var(--terra);
+  text-decoration-thickness:2px;
+  text-underline-offset:6px;
+}
+#siteHeader .nav-active:hover{color:var(--forest)}
+.dark #siteHeader .nav-active{color:var(--terra);background:transparent}
+.dark #siteHeader .nav-active:hover{color:var(--terra)}
+/* Mobile menu rows sit tighter, so pull the rule closer to the text. */
+#mobileMenu .nav-active{text-underline-offset:4px}
+
+/* Call-to-action pills — Login is the primary action in the header */
+.cta-primary{
+  background:var(--forest);
+  color:#fff;
+  border:1px solid var(--forest);
+  box-shadow:0 8px 18px -12px rgba(63,93,69,.9);
+  transition:background .25s,border-color .25s,color .25s,box-shadow .25s;
+}
+.cta-primary:hover{background:#334c38;border-color:#334c38;color:#fff}
+.cta-primary:focus-visible{outline:2px solid var(--forest);outline-offset:3px}
+.dark .cta-primary{
+  background:var(--terra);
+  border-color:var(--terra);
+  color:var(--deep);
+  box-shadow:0 8px 18px -12px rgba(201,139,91,.9);
+}
+.dark .cta-primary:hover{background:#d69a6b;border-color:#d69a6b;color:var(--deep)}
+.dark .cta-primary:focus-visible{outline-color:var(--terra)}
+/* Keep the filled look if the Login page ever renders the shared header. */
+#siteHeader .nav-active.cta-primary{
+  background:var(--forest);border-color:var(--forest);color:#fff;border-radius:9999px;
+  box-shadow:0 8px 18px -12px rgba(63,93,69,.9);text-decoration-line:none;
+}
+.dark #siteHeader .nav-active.cta-primary{
+  background:var(--terra);border-color:var(--terra);color:var(--deep);
+  box-shadow:0 8px 18px -12px rgba(201,139,91,.9);
+}
+
+/* Secondary action — Reserve a Table */
+.cta-ghost{
+  background:transparent;
+  color:var(--forest);
+  border:1px solid var(--forest);
+  transition:background .25s,border-color .25s,color .25s;
+}
+.cta-ghost:hover,.cta-ghost:focus-visible{background:rgba(63,93,69,.08);border-color:var(--forest);color:var(--forest)}
+.cta-ghost:focus-visible{outline:2px solid var(--forest);outline-offset:3px}
+.dark .cta-ghost{color:var(--terra);border-color:var(--terra)}
+.dark .cta-ghost:hover,.dark .cta-ghost:focus-visible{background:rgba(201,139,91,.12);border-color:var(--terra);color:var(--terra)}
+.dark .cta-ghost:focus-visible{outline-color:var(--terra)}
 
 /* Botanical border */
 .leaf-rule{display:flex;align-items:center;gap:.75rem;justify-content:center}

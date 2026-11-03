@@ -13,35 +13,60 @@
 <body class="bg-[#F6F1E7] dark:bg-[#20251F] text-[#2F3028] dark:text-[#F6F1E7] font-sans antialiased">
 <div id="navbar"></div>
 <main>
-<!-- HERO — Home 1 style split editorial -->
-<section class="relative overflow-hidden botanical-bg">
-<div class="absolute -top-24 -end-24 w-[420px] h-[420px] rounded-full bg-[#C98B5B]/15 blur-3xl pointer-events-none" aria-hidden="true"></div>
-<div class="absolute -bottom-32 -start-24 w-[380px] h-[380px] rounded-full bg-[#3F5D45]/10 blur-3xl pointer-events-none" aria-hidden="true"></div>
-<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 md:pt-16 pb-14 grid lg:grid-cols-2 gap-10 items-center">
-<div class="hero-rise hero-rise-2">
-<div class="inline-flex flex-wrap items-center gap-2 text-[11px] font-bold tracking-[0.2em] uppercase"><span class="px-3 py-1.5 rounded-full bg-[#3F5D45]/10 dark:bg-white/10 text-[#3F5D45] dark:text-[#C98B5B] border border-[#3F5D45]/20">Hearth & Harvest · Supper Club</span><span class="text-[#8A6A3F] dark:text-[#e6b98a]">Fire · Fungi · Orchard Fruit</span></div>
-<h1 class="font-serif text-4xl sm:text-5xl xl:text-6xl font-bold leading-[1.05] mt-5">Eat with the <span class="italic font-accent font-medium text-[#3F5D45] dark:text-[#eec79f]">seasons.</span><br/>Sit with <span class="italic font-accent font-medium text-[#3F5D45] dark:text-[#eec79f]">neighbours.</span></h1>
-<div class="flex items-center gap-3 mt-5" aria-hidden="true"><span class="h-px w-12 bg-[#C98B5B]"></span><svg viewBox="0 0 24 24" class="w-4 h-4 text-[#C98B5B]" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21c-5 0-8-3.5-8-8 0-5 4-9 10-10-.5 6-1.5 10-6 12" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-[11px] tracking-[0.24em] uppercase font-bold text-[#8A6A3F] dark:text-[#e8b98a]">Editorial · Event-first</span></div>
-<p class="mt-4 text-base md:text-lg leading-relaxed opacity-80 max-w-xl">An editorial, event-first way into our table — this month: fire, fungi and orchard fruit.</p>
-<div class="flex flex-wrap gap-3 mt-7">
-<a href="booking.html" class="group px-7 py-3.5 rounded-full bg-[#C98B5B] hover:bg-[#b67a4d] text-white font-semibold text-sm shadow-[0_18px_40px_-12px_rgba(201,139,91,.7)] hover:-translate-y-0.5 transition-all">Reserve a Table <span class="inline-block group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span></a>
-<a href="events.html" class="px-7 py-3.5 rounded-full border-2 border-[#3F5D45] dark:border-[#C98B5B] font-semibold text-sm hover:bg-[#3F5D45] hover:text-white dark:hover:bg-[#C98B5B] transition-all hover:-translate-y-0.5">Supper Club Dates</a>
+<!-- HERO — Home 2 only: full-bleed cinematic, event-first (intentionally distinct from Home 1) -->
+<section class="relative isolate overflow-hidden bg-[#20251F] text-[#F6F1E7]">
+<img src="images/events/supper-gathering.jpg" alt="Guests gathered around a candlelit supper club table" class="absolute inset-0 -z-20 h-full w-full object-cover object-center"/>
+<div class="absolute inset-0 -z-10 bg-gradient-to-t from-[#10140d] via-[#10140d]/70 to-[#10140d]/30" aria-hidden="true"></div>
+<div class="absolute inset-0 -z-10 bg-gradient-to-r from-[#10140d]/85 via-[#10140d]/25 to-transparent" aria-hidden="true"></div>
+<div class="relative mx-auto flex min-h-[calc(100svh-4rem)] w-full max-w-7xl flex-col justify-between gap-10 px-4 pb-10 pt-7 sm:px-6 md:min-h-[calc(100svh-76px)] md:pb-14 md:pt-11 lg:px-8">
+
+<!-- top utility line -->
+<div class="hero-rise hero-rise-1 flex flex-wrap items-center justify-between gap-3 text-[10.5px] font-bold uppercase tracking-[0.18em] sm:text-[11px]">
+<span class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-2 backdrop-blur">
+<span class="h-1.5 w-1.5 rounded-full bg-[#C98B5B]" aria-hidden="true"></span>
+Autumn 2026 · Supper Club Season
+</span>
+<span class="hidden text-white/65 sm:inline">Fri &amp; Sat · 7:00 PM · 14 Orchard Lane</span>
 </div>
-<a href="about.html" class="inline-flex items-center gap-2 mt-5 text-sm font-semibold text-[#8A6A3F] dark:text-[#C98B5B] hover:gap-3 transition-all">Discover Our Story <span aria-hidden="true">→</span></a>
-<div class="flex flex-wrap gap-x-6 gap-y-2 mt-7 text-[13px] font-medium">
-<span class="inline-flex items-center gap-2"><svg class="w-4 h-4 text-[#3F5D45] dark:text-[#C98B5B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>60-mile sourcing</span>
-<span class="inline-flex items-center gap-2"><svg class="w-4 h-4 text-[#3F5D45] dark:text-[#C98B5B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 21c-5 0-8-3.5-8-8 0-5 4-9 10-10-.5 6-1.5 10-6 12"/></svg>14 partner producers</span>
-<span class="inline-flex items-center gap-2"><svg class="w-4 h-4 text-[#3F5D45] dark:text-[#C98B5B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.8-5.4 2.8 1-6.1L3.2 9.5l6.1-.9z"/></svg>4.9 ★ demo rating</span>
+
+<!-- bottom editorial block: headline left, next-evening card right -->
+<div class="grid items-end gap-8 lg:grid-cols-[1.35fr_0.65fr] lg:gap-12">
+<div>
+<p class="hero-rise hero-rise-2 text-[11px] font-bold uppercase tracking-[0.24em] text-[#e8b98a]">Hearth &amp; Harvest · After Dark</p>
+<h1 class="hero-rise hero-rise-2 mt-3 text-balance font-serif text-[2.6rem] font-bold leading-[1.02] sm:text-5xl md:text-6xl xl:text-7xl">When the sun drops,<br class="hidden sm:block"/> we <span class="font-accent font-medium italic text-[#eec79f]">gather.</span></h1>
+<p class="hero-rise hero-rise-3 mt-5 max-w-xl text-[15px] leading-relaxed text-white/80 md:text-lg">Fire-lit suppers, long tables and the people who grow the food. One evening a week, the kitchen tells the season's story course by course.</p>
+<div class="hero-rise hero-rise-3 mt-7 flex flex-wrap items-center gap-3">
+<a href="booking.html" class="group inline-flex items-center justify-center gap-2 text-center rounded-full bg-[#C98B5B] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_18px_40px_-12px_rgba(201,139,91,.65)] transition-all hover:-translate-y-0.5 hover:bg-[#b67a4d]">Reserve a Seat <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span></a>
+<a href="events.html" class="inline-flex items-center justify-center gap-2 text-center rounded-full border border-white/35 px-7 py-3.5 text-sm font-semibold text-white transition hover:border-white hover:bg-white hover:text-[#20251F]">Explore the Season</a>
 </div>
+<dl class="hero-rise hero-rise-4 mt-8 grid max-w-2xl grid-cols-3 gap-3 border-t border-white/15 pt-5 sm:gap-6">
+<div><dt class="text-[9.5px] font-bold uppercase tracking-[0.18em] text-white/50 sm:text-[10px]">Next supper</dt><dd class="mt-1 font-serif text-base font-bold sm:text-lg">Fri 24 Oct</dd></div>
+<div><dt class="text-[9.5px] font-bold uppercase tracking-[0.18em] text-white/50 sm:text-[10px]">The table</dt><dd class="mt-1 font-serif text-base font-bold sm:text-lg">18 seats · 5 courses</dd></div>
+<div><dt class="text-[9.5px] font-bold uppercase tracking-[0.18em] text-white/50 sm:text-[10px]">Sourcing</dt><dd class="mt-1 font-serif text-base font-bold sm:text-lg">60 miles</dd></div>
+</dl>
 </div>
-<div class="hero-rise hero-rise-3 relative">
-<div class="absolute -inset-3 rounded-[2rem] border border-[#C98B5B]/30 pointer-events-none" aria-hidden="true"></div>
-<div class="rounded-[1.8rem] overflow-hidden shadow-2xl zoom-img aspect-[4/3]"><img src="images\home\img2.avif" alt="Golden harvest field at dusk" class="hero-kenburns w-full h-full object-cover"/></div>
-<div class="absolute -bottom-5 start-5 md:start-8 bg-white dark:bg-[#2B3029] rounded-2xl shadow-xl px-5 py-4 flex items-center gap-4 border border-[#ece2cf] dark:border-[#3c443c]">
-<img src="images/events/events-new01.jpg" alt="Harvest supper table" class="w-12 h-12 rounded-xl object-cover"/>
-<div><p class="text-[11px] uppercase tracking-widest opacity-60">This month</p><p class="font-serif font-bold">Fire · Fungi · Orchard Fruit</p></div>
+
+<!-- next evening card -->
+<aside class="hero-rise hero-rise-4 w-full max-w-xl rounded-[1.6rem] border border-white/15 bg-white/[0.08] p-5 shadow-2xl backdrop-blur-md sm:p-6 lg:justify-self-end" aria-label="Next supper club evening">
+<div class="flex items-start justify-between gap-3">
+<div>
+<p class="text-[10px] font-bold uppercase tracking-[0.22em] text-[#e8b98a]">Next at the long table</p>
+<p class="mt-3 font-serif text-2xl font-bold leading-tight sm:text-3xl">Harvest Table Dinner</p>
+<p class="mt-1 text-sm text-white/70">Fri 24 Oct · 7:00 PM · 5 courses</p>
 </div>
-<div class="absolute -top-4 end-6 px-4 py-2 rounded-full bg-[#2F3028] dark:bg-[#F6F1E7] text-[#F6F1E7] dark:text-[#2F3028] text-[11px] font-bold tracking-[0.18em] uppercase shadow-lg">Autumn · Supper Club</div>
+<span class="shrink-0 rounded-full border border-white/20 bg-black/20 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-white/80">8 seats</span>
+</div>
+<div class="mt-4 flex flex-wrap gap-1.5 text-[11px] font-semibold text-white/75">
+<span class="rounded-full border border-white/15 px-2.5 py-1">Squash</span>
+<span class="rounded-full border border-white/15 px-2.5 py-1">Mushroom</span>
+<span class="rounded-full border border-white/15 px-2.5 py-1">Orchard fruit</span>
+</div>
+<div class="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-white/15 pt-4">
+<a href="booking.html" class="inline-flex items-center justify-center text-center rounded-full bg-white px-5 py-2.5 text-sm font-bold text-[#20251F] transition hover:bg-[#F6F1E7]">Book this evening</a>
+<a href="events.html" class="text-xs font-semibold uppercase tracking-[0.14em] text-white/70 transition hover:text-white">All dates →</a>
+</div>
+<p class="mt-3 text-[10px] uppercase tracking-[0.16em] text-white/40">Demo menu &amp; availability</p>
+</aside>
 </div>
 </div>
 </section>
@@ -52,7 +77,7 @@
 <div class="reveal"><p class="font-serif text-3xl font-bold text-[#3F5D45] dark:text-[#C98B5B]">1</p><p class="text-xs uppercase tracking-widest opacity-70 mt-1">Long table</p></div>
 </div></section>
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid lg:grid-cols-5 gap-8">
-<div class="lg:col-span-2 reveal"><p class="text-[11px] tracking-[0.22em] uppercase font-bold text-[#8A6A3F]">The Journal</p><h2 class="font-serif text-3xl md:text-4xl font-bold mt-2">Autumn notes from the kitchen garden.</h2><p class="mt-3 text-[15px] opacity-80">A slower, story-led homepage: what’s ripening, who grew it, and how Elena cooks it over fire.</p><a href="sourcing.html" class="mt-5 inline-block px-6 py-3 rounded-full bg-[#3F5D45] text-white text-sm font-semibold">Know Your Farmers</a></div>
+<div class="lg:col-span-2 reveal"><p class="text-[11px] tracking-[0.22em] uppercase font-bold text-[#8A6A3F]">The Journal</p><h2 class="font-serif text-3xl md:text-4xl font-bold mt-2">Autumn notes from the kitchen garden.</h2><p class="mt-3 text-[15px] opacity-80">A slower, story-led homepage: what’s ripening, who grew it, and how Elena cooks it over fire.</p><a href="sourcing.html" class="mt-5 inline-flex items-center justify-center text-center px-6 py-3 rounded-full bg-[#3F5D45] text-white text-sm font-semibold">Know Your Farmers</a></div>
 <div class="lg:col-span-3 grid sm:grid-cols-2 gap-5">
 <article class="reveal rounded-2xl overflow-hidden border border-[#ece2cf] dark:border-[#3c443c] bg-white dark:bg-[#2B3029] card-lift"><img loading="lazy" src="images\home\img3.avif" alt="Fresh seasonal produce" class="aspect-[16/10] w-full object-cover"/><div class="p-5"><h3 class="font-serif font-bold text-lg">This week’s crate</h3><p class="text-sm opacity-75">Delicata, chanterelles, Suncrisp apples.</p></div></article>
 <article class="reveal rounded-2xl overflow-hidden border border-[#ece2cf] dark:border-[#3c443c] bg-white dark:bg-[#2B3029] card-lift"><img loading="lazy" src="images/chefs/chef-plating.jpg" alt="Chef plating a dish" class="aspect-[16/10] w-full object-cover"/><div class="p-5"><h3 class="font-serif font-bold text-lg">From Elena’s pass</h3><p class="text-sm opacity-75">“Seasonal cooking is about listening.”</p></div></article>
@@ -63,7 +88,7 @@
 <div class="grid md:grid-cols-3 gap-5 mt-6">
 <div class="reveal rounded-2xl overflow-hidden bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] card-lift"><img loading="lazy" src="images/events/events-new02.jpg" alt="Harvest Table Dinner" class="aspect-[16/10] w-full object-cover"/><div class="p-5"><p class="text-xs font-bold text-[#C98B5B]">OCT 24 · 7 PM</p><h3 class="font-serif font-bold text-lg">Harvest Table Dinner</h3><a href="events.html" class="text-sm font-semibold text-[#3F5D45] dark:text-[#C98B5B]">Details →</a></div></div>
 <div class="reveal rounded-2xl overflow-hidden bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] card-lift"><img loading="lazy" src="images/events/events-new03.jpg" alt="Farmers Table Evening" class="aspect-[16/10] w-full object-cover"/><div class="p-5"><p class="text-xs font-bold text-[#C98B5B]">NOV 07 · 6:30 PM</p><h3 class="font-serif font-bold text-lg">Farmers’ Table Evening</h3><a href="events.html" class="text-sm font-semibold text-[#3F5D45] dark:text-[#C98B5B]">Details →</a></div></div>
-<div class="reveal rounded-2xl bg-[#2F3028] text-[#F6F1E7] p-7 flex flex-col justify-center"><h3 class="font-serif text-2xl font-bold">Prefer a quiet corner?</h3><p class="text-sm opacity-80 mt-2">The dining room runs Tue–Sun for seasonal tasting menus.</p><a href="booking.html" class="mt-4 w-fit px-6 py-3 rounded-full bg-[#C98B5B] text-sm font-bold">Book Dining Room</a></div>
+<div class="reveal rounded-2xl bg-[#2F3028] text-[#F6F1E7] p-7 flex flex-col justify-center"><h3 class="font-serif text-2xl font-bold">Prefer a quiet corner?</h3><p class="text-sm opacity-80 mt-2">The dining room runs Tue–Sun for seasonal tasting menus.</p><a href="booking.html" class="mt-4 inline-flex w-fit items-center justify-center text-center px-6 py-3 rounded-full bg-[#C98B5B] text-sm font-bold">Book Dining Room</a></div>
 </div>
 </section>
 <!-- S5 MENU HIGHLIGHTS -->
@@ -80,7 +105,7 @@
 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
 <figure class="reveal rounded-2xl bg-white dark:bg-[#2B3029] border p-6"><p class="font-accent italic text-lg">"The seasonal menu made every visit feel completely different."</p><figcaption class="text-xs opacity-60 mt-2">Fictional guest</figcaption></figure>
 <figure class="reveal rounded-2xl bg-white dark:bg-[#2B3029] border p-6"><p class="font-accent italic text-lg">"A beautiful evening from the first bite to the final course."</p><figcaption class="text-xs opacity-60 mt-2">Fictional guest</figcaption></figure>
-<figure class="reveal rounded-2xl bg-[#3F5D45] text-white p-6 sm:col-span-2 lg:col-span-1"><p class="font-serif font-bold text-lg">4.9 ★ from demo regulars</p><p class="text-sm text-white/80 mt-1">Fictional rating for illustration.</p><a href="booking.html" class="mt-3 inline-block px-5 py-2.5 rounded-full bg-white text-[#3F5D45] text-sm font-bold">Join Them</a></figure>
+<figure class="reveal rounded-2xl bg-[#3F5D45] text-white p-6 sm:col-span-2 lg:col-span-1"><p class="font-serif font-bold text-lg">4.9 ★ from demo regulars</p><p class="text-sm text-white/80 mt-1">Fictional rating for illustration.</p><a href="booking.html" class="mt-3 inline-flex items-center justify-center text-center px-5 py-2.5 rounded-full bg-white text-[#3F5D45] text-sm font-bold">Join Them</a></figure>
 </div></section>
 
 <!-- S9 GROWERS — Hands behind the harvest -->
@@ -91,11 +116,11 @@
 <article class="reveal rounded-2xl overflow-hidden bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] card-lift"><div class="zoom-img aspect-[16/10] overflow-hidden"><img loading="lazy" src="images/farmers/farmer-2.jpg" alt="Orchard grower holding apples" class="w-full h-full object-cover"/></div><div class="p-5 md:p-6"><p class="text-[11px] font-bold tracking-[0.18em] uppercase text-[#C98B5B]">Orchard Lane · 8 mi</p><h3 class="font-serif text-xl font-bold mt-1">Willow Creek Orchard</h3><p class="text-sm opacity-75 mt-1">Suncrisp apples & orchard fruit for tarts and pours.</p><div class="flex flex-wrap gap-2 mt-3"><span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-[#3F5D45]/10 dark:bg-white/10 text-[#3F5D45] dark:text-[#9db8a1]">Orchard</span><span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-[#C98B5B]/15 text-[#8A6A3F] dark:text-[#e8b98a]">Dessert & cider</span></div></div></article>
 <article class="reveal rounded-2xl overflow-hidden bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] card-lift sm:col-span-2 lg:col-span-1"><div class="zoom-img aspect-[16/10] overflow-hidden"><img loading="lazy" src="images/farmers/farmer-hands.jpg" alt="Hands holding freshly picked produce" class="w-full h-full object-cover"/></div><div class="p-5 md:p-6"><p class="text-[11px] font-bold tracking-[0.18em] uppercase text-[#C98B5B]">Meadow & Dairy · 22 mi</p><h3 class="font-serif text-xl font-bold mt-1">Meadow Hands Co-op</h3><p class="text-sm opacity-75 mt-1">Mushrooms, herbs & aged cheese, picked at dawn.</p><div class="flex flex-wrap gap-2 mt-3"><span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-[#3F5D45]/10 dark:bg-white/10 text-[#3F5D45] dark:text-[#9db8a1]">Fungi & dairy</span><span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-[#C98B5B]/15 text-[#8A6A3F] dark:text-[#e8b98a]">Supper club star</span></div></div></article>
 </div>
-<div class="text-center mt-8 reveal"><a href="sourcing.html" class="inline-block px-7 py-3 rounded-full bg-[#3F5D45] hover:bg-[#334c38] text-white text-sm font-semibold transition hover:-translate-y-0.5">Meet All 14 Producers</a></div>
+<div class="text-center mt-8 reveal"><a href="sourcing.html" class="inline-flex items-center justify-center text-center px-7 py-3 rounded-full bg-[#3F5D45] hover:bg-[#334c38] text-white text-sm font-semibold transition hover:-translate-y-0.5">Meet All 14 Producers</a></div>
 </section>
 <!-- S7 VISIT + FAQ -->
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 grid lg:grid-cols-2 gap-5">
-<div class="reveal rounded-2xl bg-[#2F3028] text-[#F6F1E7] p-7"><h2 class="font-serif text-2xl font-bold">Visit · 14 Orchard Lane</h2><p class="text-sm opacity-80 mt-2">Tue–Sun 5–10pm · Supper Club Fri & Sat · (555) 014-7890</p><div class="flex flex-wrap gap-2 mt-4"><a href="booking.html" class="px-5 py-2.5 rounded-full bg-[#C98B5B] text-sm font-bold">Reserve</a><a href="contact.html" class="px-5 py-2.5 rounded-full border border-white/30 text-sm font-semibold">Directions</a></div></div>
+<div class="reveal rounded-2xl bg-[#2F3028] text-[#F6F1E7] p-7"><h2 class="font-serif text-2xl font-bold">Visit · 14 Orchard Lane</h2><p class="text-sm opacity-80 mt-2">Tue–Sun 5–10pm · Supper Club Fri & Sat · (555) 014-7890</p><div class="flex flex-wrap gap-2 mt-4"><a href="booking.html" class="inline-flex items-center justify-center text-center px-5 py-2.5 rounded-full bg-[#C98B5B] text-sm font-bold">Reserve</a><a href="contact.html" class="inline-flex items-center justify-center text-center px-5 py-2.5 rounded-full border border-white/30 text-sm font-semibold">Directions</a></div></div>
 <div class="reveal rounded-2xl bg-white dark:bg-[#2B3029] border p-7"><h2 class="font-serif text-2xl font-bold">Supper club, how?</h2><div class="mt-3 space-y-3">
 <div class="faq-item border rounded-xl"><button class="faq-q w-full flex justify-between p-4 text-sm font-semibold text-start" aria-expanded="false">How do I join? <span class="faq-chevron">▾</span></button><div class="faq-a px-4"><p class="pb-4 text-sm opacity-75">Pick a date on the Supper Club page and reserve — seats are communal.</p></div></div>
 <div class="faq-item border rounded-xl"><button class="faq-q w-full flex justify-between p-4 text-sm font-semibold text-start" aria-expanded="false">Dietary needs? <span class="faq-chevron">▾</span></button><div class="faq-a px-4"><p class="pb-4 text-sm opacity-75">Tell us at booking; the kitchen adapts every course.</p></div></div>
@@ -110,8 +135,8 @@
 <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold mt-2">Pull up a chair at the <span class="italic font-accent font-medium text-[#eec79f]">long table.</span></h2>
 <p class="mt-3 text-sm md:text-[15px] text-white/80 max-w-xl mx-auto">Five courses, 14 partner growers, one communal table. Reserve your seat before the season turns.</p>
 <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 mt-6">
-<a href="booking.html" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-[#C98B5B] hover:bg-[#b67a4d] text-white text-sm font-bold shadow-xl hover:-translate-y-0.5 transition">Reserve a Table</a>
-<a href="events.html" class="w-full sm:w-auto px-7 py-3.5 rounded-full border border-white/40 text-sm font-semibold hover:bg-white hover:text-[#2F3028] transition">Supper Club Dates</a>
+<a href="booking.html" class="inline-flex w-full items-center justify-center text-center sm:w-auto px-7 py-3.5 rounded-full bg-[#C98B5B] hover:bg-[#b67a4d] text-white text-sm font-bold shadow-xl hover:-translate-y-0.5 transition">Reserve a Table</a>
+<a href="events.html" class="inline-flex w-full items-center justify-center text-center sm:w-auto px-7 py-3.5 rounded-full border border-white/40 text-sm font-semibold hover:bg-white hover:text-[#2F3028] transition">Supper Club Dates</a>
 </div>
 <p class="mt-4 text-xs text-white/60">Vegetarian, vegan &amp; gluten-free every night — note needs at booking.</p>
 </div>

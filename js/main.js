@@ -53,26 +53,26 @@ function initFAQ(){
 /* ---------- Seasonal menu data + switcher ---------- */
 const SEASON_MENUS = {
   spring:{label:'Spring',accent:'#6F8B72',items:[
-    {n:'Shaved Asparagus Salad',d:'Pea shoots, lemon crème, garden herbs',tags:['V','GF'],p:'$14'},
-    {n:'Spring Pea Soup',d:'Mint oil, crème fraîche, grilled bread',tags:['V'],p:'$12'},
-    {n:'Strawberry & Burrata',d:'Basil, aged balsamic, cracked pepper',tags:['V','GF','N'],p:'$16'},
-    {n:'Herb Chicken Paillard',d:'Charred greens, spring onions',tags:['GF','DF'],p:'$28'}]},
+    {n:'Shaved Asparagus Salad',d:'Pea shoots, lemon crème, garden herbs',tags:['V','GF'],p:'$14',img:'images/dishes/dishes-new04.jpg'},
+    {n:'Spring Pea Soup',d:'Mint oil, crème fraîche, grilled bread',tags:['V'],p:'$12',img:'images/dishes/dishes-new09.jpg'},
+    {n:'Strawberry & Burrata',d:'Basil, aged balsamic, cracked pepper',tags:['V','GF','N'],p:'$16',img:'images/dishes/dishes-new06.jpg'},
+    {n:'Herb Chicken Paillard',d:'Charred greens, spring onions',tags:['GF','DF'],p:'$28',img:'images/dishes/dishes-new02.jpg'}]},
   summer:{label:'Summer',accent:'#C98B5B',items:[
-    {n:'Heirloom Tomato Plate',d:'Whipped feta, basil oil, sea salt',tags:['V','GF'],p:'$15'},
-    {n:'Sweet Corn Risotto',d:'Parmesan, chive blossom',tags:['V','GF'],p:'$24'},
-    {n:'Peach & Blackberry Tart',d:'Vanilla cream, oat crumble',tags:['V'],p:'$13'},
-    {n:'Grilled Field Vegetables',d:'Rom­esco, herb oil',tags:['VG','DF','GF'],p:'$22'}]},
+    {n:'Heirloom Tomato Plate',d:'Whipped feta, basil oil, sea salt',tags:['V','GF'],p:'$15',img:'images/dishes/dishes-new18.jpg'},
+    {n:'Sweet Corn Risotto',d:'Parmesan, chive blossom',tags:['V','GF'],p:'$24',img:'images/dishes/dishes-new11.jpg'},
+    {n:'Peach & Blackberry Tart',d:'Vanilla cream, oat crumble',tags:['V'],p:'$13',img:'images/dishes/dishes-new05.jpg'},
+    {n:'Grilled Field Vegetables',d:'Rom­esco, herb oil',tags:['VG','DF','GF'],p:'$22',img:'images/dishes/dishes-new16.jpg'}]},
   autumn:{label:'Autumn',accent:'#8A6A3F',items:[
-    {n:'Roasted Heirloom Carrots',d:'Whipped goat cheese and herbs',tags:['V','GF'],p:'$14'},
-    {n:'Wood-Fired Seasonal Squash',d:'Brown butter and toasted seeds',tags:['V','GF','N'],p:'$18'},
-    {n:'Wild Mushroom Risotto',d:'Aged parmesan, thyme',tags:['V','GF'],p:'$26'},
-    {n:'Herb-Roasted Chicken',d:'Garden vegetables, pan jus',tags:['GF','DF'],p:'$29'},
-    {n:'Stone Fruit Tart',d:'Vanilla cream (demo)',tags:['V'],p:'$13'}]},
+    {n:'Roasted Heirloom Carrots',d:'Whipped goat cheese and herbs',tags:['V','GF'],p:'$14',img:'images/dishes/dishes-new13.jpg'},
+    {n:'Wood-Fired Seasonal Squash',d:'Brown butter and toasted seeds',tags:['V','GF','N'],p:'$18',img:'images/dishes/dishes-new01.jpg'},
+    {n:'Wild Mushroom Risotto',d:'Aged parmesan, thyme',tags:['V','GF'],p:'$26',img:'images/dishes/dishes-new19.jpg'},
+    {n:'Herb-Roasted Chicken',d:'Garden vegetables, pan jus',tags:['GF','DF'],p:'$29',img:'images/dishes/dishes-new20.jpg'},
+    {n:'Stone Fruit Tart',d:'Vanilla cream (demo)',tags:['V'],p:'$13',img:'images/dishes/dishes-new03.jpg'}]},
   winter:{label:'Winter',accent:'#3F5D45',items:[
-    {n:'Roasted Brassicas',d:'Citrus, hazelnut, brown butter',tags:['V','N'],p:'$15'},
-    {n:'Potato & Leek Gratin',d:'Winter greens, gruyère',tags:['V'],p:'$21'},
-    {n:'Citrus & Fennel Salad',d:'Olive oil, sea salt',tags:['VG','GF','DF'],p:'$14'},
-    {n:'Hearth-Braised Roots',d:'Rosemary jus, charred onion',tags:['VG','GF','DF'],p:'$23'}]}
+    {n:'Roasted Brassicas',d:'Citrus, hazelnut, brown butter',tags:['V','N'],p:'$15',img:'images/dishes/dishes-new17.jpg'},
+    {n:'Potato & Leek Gratin',d:'Winter greens, gruyère',tags:['V'],p:'$21',img:'images/dishes/dishes-new12.jpg'},
+    {n:'Citrus & Fennel Salad',d:'Olive oil, sea salt',tags:['VG','GF','DF'],p:'$14',img:'images/dishes/dishes-new10.jpg'},
+    {n:'Hearth-Braised Roots',d:'Rosemary jus, charred onion',tags:['VG','GF','DF'],p:'$23',img:'images/dishes/dishes-new15.jpg'}]}
 };
 function dietBadge(t){
   const map={V:'Vegetarian',VG:'Vegan',GF:'Gluten-Free',DF:'Dairy-Free',N:'Contains Nuts'};
@@ -89,6 +89,9 @@ function initSeasonSwitcher(){
     setTimeout(()=>{
       grid.innerHTML=data.items.map(i=>`
         <article class="rounded-2xl overflow-hidden bg-white dark:bg-[#2B3029] border border-[#ece2cf] dark:border-[#3c443c] card-lift">
+          <div class="zoom-img aspect-[16/10] overflow-hidden">
+            <img loading="lazy" decoding="async" src="${i.img}" alt="${i.n}" class="w-full h-full object-cover"/>
+          </div>
           <div class="p-5">
             <div class="flex items-start justify-between gap-3">
               <h4 class="font-serif-d text-lg font-bold">${i.n}</h4>
@@ -108,12 +111,12 @@ function initSeasonSwitcher(){
 
 /* ---------- Events: filter + modal ---------- */
 const EVENTS=[
-  {id:'e1',title:'Harvest Table Dinner',cat:'Seasonal Dinner',month:'October',date:'Oct 24, 2026',time:'7:00 PM',img:'images/dishes/dishes-new17.jpg',desc:'A five-course autumn menu around one long table — squash, mushrooms, orchard fruit.',menu:'Squash soup · Mushroom risotto · Orchard tart',seats:'8 seats left (demo)'},
-  {id:'e2',title:"Farmers' Table Evening",cat:'Farm Dinner',month:'November',date:'Nov 07, 2026',time:'6:30 PM',img:'images/dishes/dishes-new18.jpg',desc:'Meet the producers. Growers join each course to share the story behind the plate.',menu:'Grower salad · Hearth chicken · Root dessert',seats:'12 seats left (demo)'},
-  {id:'e3',title:'Winter Hearth Supper',cat:'Seasonal Dinner',month:'December',date:'Dec 12, 2026',time:'7:30 PM',img:'images/dishes/dishes-new19.jpg',desc:'Wood-fired winter cooking — brassicas, citrus, slow roots beside the hearth.',menu:'Citrus salad · Braised roots · Warm cake',seats:'Waitlist (demo)'},
-  {id:'e4',title:'Chef Collaboration Night',cat:'Chef Collaboration',month:'November',date:'Nov 21, 2026',time:'7:00 PM',img:'images/dishes/dishes-new20.jpg',desc:'Guest chef joins Elena Morgan for one night of shared plates and late conversation.',menu:'4 shared plates · Paired dessert',seats:'6 seats left (demo)'},
-  {id:'e5',title:'Orchard Late-Summer Feast',cat:'Special Event',month:'October',date:'Oct 10, 2026',time:'6:00 PM',img:'images/menu/hero-menu.jpg',desc:'An outdoor farewell to summer — tomatoes, corn, stone fruit under string lights.',menu:'Tomato plate · Corn risotto · Fruit tart',seats:'Sold out (demo)'},
-  {id:'e6',title:'Cellar & Cheese Night',cat:'Special Event',month:'December',date:'Dec 20, 2026',time:'7:00 PM',img:'images/home/img7.avif',desc:'Aged cheese, preserves and cellar pours by candlelight — a slow close to the year.',menu:'Cheese board · Preserves · Warm cake',seats:'10 seats left (demo)'}
+  {id:'e1',title:'Harvest Table Dinner',cat:'Seasonal Dinner',month:'October',date:'Oct 24, 2026',time:'7:00 PM',img:'images/home/Harvest Table Dinner.avif',desc:'A five-course autumn menu around one long table — squash, mushrooms, orchard fruit.',menu:'Squash soup · Mushroom risotto · Orchard tart',seats:'8 seats left (demo)'},
+  {id:'e2',title:"Farmers' Table Evening",cat:'Farm Dinner',month:'November',date:'Nov 07, 2026',time:'6:30 PM',img:'images/home/Farmers Table Evening.avif',desc:'Meet the producers. Growers join each course to share the story behind the plate.',menu:'Grower salad · Hearth chicken · Root dessert',seats:'12 seats left (demo)'},
+  {id:'e3',title:'Winter Hearth Supper',cat:'Seasonal Dinner',month:'December',date:'Dec 12, 2026',time:'7:30 PM',img:'images/home/Winter Hearth Supper.avif',desc:'Wood-fired winter cooking — brassicas, citrus, slow roots beside the hearth.',menu:'Citrus salad · Braised roots · Warm cake',seats:'Waitlist (demo)'},
+  {id:'e4',title:'Chef Collaboration Night',cat:'Chef Collaboration',month:'November',date:'Nov 21, 2026',time:'7:00 PM',img:'images/home/Chef Collaboration Night.avif',desc:'Guest chef joins Elena Morgan for one night of shared plates and late conversation.',menu:'4 shared plates · Paired dessert',seats:'6 seats left (demo)'},
+  {id:'e5',title:'Orchard Late-Summer Feast',cat:'Special Event',month:'October',date:'Oct 10, 2026',time:'6:00 PM',img:'images/home/Orchard Late-Summer Feast.avif',desc:'An outdoor farewell to summer — tomatoes, corn, stone fruit under string lights.',menu:'Tomato plate · Corn risotto · Fruit tart',seats:'Sold out (demo)'},
+  {id:'e6',title:'Cellar & Cheese Night',cat:'Special Event',month:'December',date:'Dec 20, 2026',time:'7:00 PM',img:'images/home/Cellar & Cheese Night.avif',desc:'Aged cheese, preserves and cellar pours by candlelight — a slow close to the year.',menu:'Cheese board · Preserves · Warm cake',seats:'10 seats left (demo)'}
 ];
 function initEvents(){
   const grid=$('#eventGrid'); if(!grid) return;
@@ -184,14 +187,20 @@ function initEvents(){
 /* ---------- Booking stepper ---------- */
 function initBooking(){
   const form=$('#bookingForm'); if(!form) return;
+  // Safety net: never allow a full page reload / GET submit from the stepper.
+  form.addEventListener('submit',(e)=>e.preventDefault());
   const steps=$$('.book-step'); const dots=$$('.step-dot'); const bar=$('#stepBar');
   let cur=0;
   const state={exp:'',date:'',time:'',name:'',email:'',guests:'2',diet:[],notes:''};
-  function paint(){
+  function paint(scrollToForm){
     steps.forEach((s,i)=>s.classList.toggle('hidden',i!==cur));
     dots.forEach((d,i)=>{ d.classList.toggle('step-on',i===cur); d.classList.toggle('step-done',i<cur); });
     if(bar) bar.style.width=((cur+1)/steps.length*100)+'%';
-    window.scrollTo({top:0,behavior:'smooth'});
+    // Keep the reservation flow in view without jumping the whole page to the top.
+    if(scrollToForm){
+      const top = form.getBoundingClientRect().top + window.scrollY - 88;
+      window.scrollTo({top: Math.max(0, top), behavior:'smooth'});
+    }
   }
   function valid(){
     if(cur===0 && !state.exp){ toast('Please choose an experience.'); return false; }
@@ -216,8 +225,8 @@ function initBooking(){
   $$('.diet-chip input').forEach(i=>i.addEventListener('change',()=>{
     state.diet=$$('.diet-chip input:checked').map(x=>x.value);
   }));
-  $('#bNext')?.addEventListener('click',()=>{ if(!valid())return; if(cur<steps.length-1){cur++;paint(); if(cur===5) fillSummary();} });
-  $('#bBack')?.addEventListener('click',()=>{ if(cur>0){cur--;paint();} });
+  $('#bNext')?.addEventListener('click',()=>{ if(!valid())return; if(cur<steps.length-1){cur++; if(cur===5) fillSummary(); paint(true);} });
+  $('#bBack')?.addEventListener('click',()=>{ if(cur>0){cur--;paint(true);} });
   function fillSummary(){
     const s=$('#bookSummary');
     if(s) s.innerHTML=`<div class="rounded-xl bg-white dark:bg-[#353b34] border p-4 text-sm space-y-1.5">
@@ -229,7 +238,7 @@ function initBooking(){
     toast('Reservation request submitted. We’ll confirm shortly.');
     localStorage.setItem('hh-last-booking', JSON.stringify({...state,at:new Date().toISOString()}));
   });
-  paint();
+  paint(false);
 }
 
 /* ---------- Login demo ---------- */

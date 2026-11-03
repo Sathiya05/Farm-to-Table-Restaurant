@@ -11,8 +11,8 @@
     <nav aria-label="Primary" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 md:h-[76px] gap-2">
         <a href="index.html" class="flex items-center gap-2.5 shrink-0" aria-label="Hearth and Harvest home">
-          <span class="w-10 h-10 rounded-full bg-[#3F5D45] dark:bg-[#6F8B72] text-white grid place-items-center font-serif-d text-lg" aria-hidden="true">
-            <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c-5 0-8-3.5-8-8 0-5 4-9 10-10-.5 6-1.5 10-6 12 2.5 1 3 .5 4-1 1 1.5 1.5 2 4 1-4.5 3.5-1 6 6-1.2 0-2.5 0-4 0z" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 21v-8" stroke-linecap="round"/></svg>
+          <span class="w-10 h-10 shrink-0 rounded-full bg-[#3F5D45] dark:bg-[#6F8B72] text-white grid place-items-center font-serif-d text-lg" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.1c1 3.4 3.1 5 4.7 7.4 1.5 2.4 1.6 5 .2 7.1-1.2 1.8-3 2.9-4.9 2.9-3.1 0-5.8-2.1-6.5-5-.5-2.4.4-4.6 2.2-6.6 1.6-1.8 3.6-3.2 4.3-5.8Z"/><path d="M12 18.3c0-2.4 0-4.2-.6-6"/></svg>
           </span>
           <span class="leading-none">
             <span class="block font-serif-d text-lg md:text-xl font-bold text-[#2F3028] dark:text-[#F6F1E7]">Hearth <span class="text-[#C98B5B] font-accent italic">&</span> Harvest</span>
@@ -54,13 +54,13 @@
         <div class="hidden xl:flex items-center gap-2">
           <button id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme" class="w-10 h-10 grid place-items-center rounded-full border border-[#ddcfb4] dark:border-[#4a534a] text-[#3F5D45] dark:text-[#F6F1E7] hover:bg-[#3F5D45] hover:text-white transition"></button>
           <button id="rtlToggle" aria-label="Toggle right-to-left layout" title="Toggle RTL / LTR" class="w-10 h-10 grid place-items-center rounded-full border border-[#ddcfb4] dark:border-[#4a534a] text-[#3F5D45] dark:text-[#F6F1E7] hover:bg-[#C98B5B] hover:text-white hover:border-[#C98B5B] transition">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 12l4-4M3 12l4 4M21 12l-4-4M21 12l-4 4"/></svg>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m8 3-4 4 4 4"/><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16"/><path stroke-linecap="round" stroke-linejoin="round" d="m16 21 4-4-4-4"/><path stroke-linecap="round" stroke-linejoin="round" d="M20 17H4"/></svg>
           </button>
-          <a data-nav="login.html" href="login.html" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full border border-[#ddcfb4] dark:border-[#4a534a] text-sm font-semibold hover:border-[#3F5D45] hover:text-[#3F5D45] dark:hover:text-[#C98B5B] transition">
+          <a data-nav="login.html" href="login.html" class="cta-primary inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-sm font-semibold">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM4 21v-1a7 7 0 0114 0v1"/></svg>
             Login
           </a>
-          <a href="contact.html" class="btn-primary text-sm font-semibold px-5 py-2.5 rounded-full">Reserve a Table</a>
+          <a href="contact.html" class="cta-ghost text-sm font-semibold px-5 py-2.5 rounded-full">Reserve a Table</a>
         </div>
 
         <div class="flex xl:hidden items-center gap-2">
@@ -72,8 +72,8 @@
       </div>
     </nav>
 
-    <div id="mobileMenu" class="xl:hidden overflow-hidden max-h-0 opacity-0" aria-hidden="true">
-      <div class="px-4 pb-5 pt-1 border-t border-[#e5d9c3] dark:border-[#3a423a] bg-[#F6F1E7] dark:bg-[#20251F]">
+    <div id="mobileMenu" class="xl:hidden absolute inset-x-0 top-full overflow-hidden max-h-0 opacity-0" aria-hidden="true">
+      <div class="px-4 pb-5 pt-1 border-t border-[#e5d9c3] dark:border-[#3a423a] bg-[#F6F1E7] dark:bg-[#20251F] shadow-2xl">
         <div class="py-1">
           <button id="mHomeBtn" data-nav-group="index.html, home2.html" aria-expanded="false" aria-controls="mHomeSub" class="w-full flex items-center justify-between py-3 font-semibold">Home
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -94,14 +94,14 @@
         </div>
         <div class="flex items-center gap-2 pt-3 border-t border-[#e8ddc6] dark:border-[#333a33]">
           <button id="themeToggleM" aria-label="Toggle dark mode" title="Toggle theme" class="w-10 h-10 shrink-0 grid place-items-center rounded-full border border-[#ddcfb4] dark:border-[#4a534a] text-[#3F5D45] dark:text-[#F6F1E7] hover:bg-[#3F5D45] hover:text-white transition"></button>
-          <button id="rtlToggleM" aria-label="Toggle right-to-left layout" title="Toggle RTL / LTR" class="flex-1 py-2.5 rounded-full border border-[#ddcfb4] dark:border-[#4a534a] text-sm font-semibold hover:border-[#C98B5B] hover:text-[#C98B5B] transition">RTL / LTR</button>
+          <button id="rtlToggleM" aria-label="Toggle right-to-left layout" title="Toggle RTL / LTR" class="flex-1 inline-flex items-center justify-center gap-2 py-2.5 rounded-full border border-[#ddcfb4] dark:border-[#4a534a] text-sm font-semibold hover:border-[#C98B5B] hover:text-[#C98B5B] transition"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m8 3-4 4 4 4"/><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16"/><path stroke-linecap="round" stroke-linejoin="round" d="m16 21 4-4-4-4"/><path stroke-linecap="round" stroke-linejoin="round" d="M20 17H4"/></svg>RTL / LTR</button>
         </div>
         <div class="flex items-center gap-2 pt-2">
-          <a data-nav="login.html" href="login.html" class="flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full border border-[#ddcfb4] dark:border-[#4a534a] text-sm font-semibold hover:border-[#3F5D45] hover:text-[#3F5D45] dark:hover:text-[#C98B5B] transition">
+          <a data-nav="login.html" href="login.html" class="cta-primary flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-full text-sm font-semibold">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM4 21v-1a7 7 0 0114 0v1"/></svg>
             Login
           </a>
-          <a href="contact.html" class="flex-1 text-center py-2.5 rounded-full bg-[#3F5D45] text-white text-sm font-semibold">Reserve a Table</a>
+          <a href="contact.html" class="cta-ghost flex-1 inline-flex items-center justify-center text-center px-4 py-3 rounded-full text-sm font-semibold">Reserve a Table</a>
         </div>
       </div>
     </div>
@@ -142,16 +142,25 @@
     if(t1) t1.addEventListener('click', toggleTheme);
     if(t2) t2.addEventListener('click', toggleTheme);
 
-    // RTL init (persisted)
+    // RTL init (persisted) + direction-aware labels on the toggles
     const savedDir = localStorage.getItem('site-direction');
-    if(savedDir === 'rtl') document.documentElement.dir = 'rtl';
-    else document.documentElement.dir = 'ltr';
+    document.documentElement.dir = savedDir === 'rtl' ? 'rtl' : 'ltr';
+    const r1=document.getElementById('rtlToggle'), r2=document.getElementById('rtlToggleM');
+    function paintDir(){
+      const rtl = document.documentElement.dir === 'rtl';
+      [r1, r2].forEach(b=>{
+        if(!b) return;
+        b.setAttribute('aria-label', rtl ? 'Switch to left-to-right layout' : 'Switch to right-to-left layout');
+        b.setAttribute('title', rtl ? 'Switch to LTR' : 'Switch to RTL');
+      });
+    }
+    paintDir();
     function toggleDir(){
       const next = document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl';
       document.documentElement.dir = next;
-      localStorage.setItem('site-direction', next === 'rtl' ? 'rtl' : 'ltr');
+      localStorage.setItem('site-direction', next);
+      paintDir();
     }
-    const r1=document.getElementById('rtlToggle'), r2=document.getElementById('rtlToggleM');
     if(r1) r1.addEventListener('click', toggleDir);
     if(r2) r2.addEventListener('click', toggleDir);
 
@@ -160,13 +169,14 @@
     document.querySelectorAll('[data-nav]').forEach(a=>{
       if(a.getAttribute('data-nav').toLowerCase() === page){
         a.classList.add('nav-active');
+        a.setAttribute('aria-current','page');
         const group = a.closest('[class*="group/"]');
         if(group){ const btn = group.querySelector(':scope > button'); if(btn) btn.classList.add('nav-active'); }
       }
     });
     document.querySelectorAll('[data-nav-group]').forEach(b=>{
       const list = b.getAttribute('data-nav-group').split(',').map(s=>s.trim().toLowerCase());
-      if(list.includes(page)) b.classList.add('nav-active');
+      if(list.includes(page)){ b.classList.add('nav-active'); b.setAttribute('aria-current','page'); }
     });
     // open mobile submenu that contains the active page
     document.querySelectorAll('#mobileMenu .nav-active').forEach(el=>{
@@ -183,10 +193,24 @@
     const menu = document.getElementById('mobileMenu');
     const oI = document.getElementById('hamOpen'), cI = document.getElementById('hamClose');
     let open=false;
+    // Menu overlays the page (absolute) so opening it never pushes content down.
+    // Cap its height to the space below the header and let the menu scroll inside.
+    function menuMax(){
+      const cap = Math.max(220, window.innerHeight - header.offsetHeight);
+      return Math.min(menu.scrollHeight, cap);
+    }
     function setMenu(v){
       open=v;
-      if(v){ menu.style.maxHeight = menu.scrollHeight + 'px'; menu.style.opacity='1'; menu.setAttribute('aria-hidden','false'); }
-      else { menu.style.maxHeight='0px'; menu.style.opacity='0'; menu.setAttribute('aria-hidden','true'); }
+      if(v){
+        menu.style.overflowY='auto';
+        menu.style.maxHeight = menuMax() + 'px';
+        menu.style.opacity='1'; menu.setAttribute('aria-hidden','false');
+      }
+      else {
+        menu.style.maxHeight='0px';
+        menu.style.overflowY='hidden';
+        menu.style.opacity='0'; menu.setAttribute('aria-hidden','true');
+      }
       ham.setAttribute('aria-expanded', String(v));
       ham.setAttribute('aria-label', v?'Close menu':'Open menu');
       oI.classList.toggle('hidden', v); cI.classList.toggle('hidden', !v);
@@ -194,6 +218,7 @@
     if(ham) ham.addEventListener('click', (e)=>{ e.stopPropagation(); setMenu(!open); });
     document.addEventListener('click', (e)=>{ if(open && !menu.contains(e.target) && !ham.contains(e.target)) setMenu(false); });
     document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && open) setMenu(false); });
+    window.addEventListener('resize', ()=>{ if(open) menu.style.maxHeight = menuMax() + 'px'; });
     menu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>setMenu(false)));
 
     // Mobile submenus
@@ -202,12 +227,12 @@
     if(hb) hb.addEventListener('click', ()=>{
       const show = hs.classList.toggle('hidden');
       hb.setAttribute('aria-expanded', String(!show));
-      menu.style.maxHeight = menu.scrollHeight + 'px';
+      menu.style.maxHeight = menuMax() + 'px';
     });
     if(db) db.addEventListener('click', ()=>{
       const show = ds.classList.toggle('hidden');
       db.setAttribute('aria-expanded', String(!show));
-      menu.style.maxHeight = menu.scrollHeight + 'px';
+      menu.style.maxHeight = menuMax() + 'px';
     });
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', mount);
